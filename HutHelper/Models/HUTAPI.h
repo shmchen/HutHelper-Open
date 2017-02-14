@@ -1,0 +1,50 @@
+//
+//  HUTAPI.h
+//  HutHelper
+//
+//  Created by nine on 2017/2/10.
+//  Copyright © 2017年 nine. All rights reserved.
+//
+
+#ifndef HUTAPI_h
+#define HUTAPI_h
+
+#define INDEX @"http://hut.wxz.name:8888"
+/**课表查询*/
+#define API_CLASS @"http://app.wxz.name/api/Class_ps"
+#define API_CLASSXP @"http://app.wxz.name/api/Class_xp"
+/**成绩查询*/
+#define API_SCORES @"http://app.wxz.name/api/Score"
+#define API_EXAM @"http://app.wxz.name/api/Exam"
+/**登录界面*/
+#define API_LOGIN @"http://app.wxz.name/api/Login"
+#define API_LOGIN_RESET @"http://app.wxz.name/api/null"
+/**用户界面*/
+#define API_PROFILE_USERNAME @"http://app.wxz.name/api/null"
+#define API_PROFILE_AVATAR @"http://app.wxz.name/api/null"
+/**网上作业*/
+#define API_HOMEWORK @"http://app.wxz.name/api/null"
+/**电费查询*/
+#define API_POWER @""
+/**二手市场*/
+#define API_GOODS @"http://hut.wxz.name:8888/api/v1/stuff/goods/%d"
+#define API_GOODS_CREATE @"http://app.wxz.name/api/null"
+#define API_GOODS_IMG_UPLOAD @"http://app.wxz.name/api/null"
+#define API_GOODS_SHOW @"http://app.wxz.name/api/null"
+/**失物招领*/
+#define API_LOST @"http://hut.wxz.name:8888/api/v1/loses/posts/%d"
+#define API_LOSES_CREATE @"http://app.wxz.name/api/null"
+#define API_LOSES_IMG_UPLOAD @"http://app.wxz.name/api/null"
+/**校园说说*/
+#define API_MOMENTS @"http://hut.wxz.name:8888/api/v1/moments/posts/%d"
+#define API_MOMENTS_CREATE @"http://app.wxz.name/api/null"
+#define API_MOMENTS_IMG_UPLOAD @"http://app.wxz.name/api/null"
+#define API_MOMENTS_DELETE @"http://app.wxz.name/api/null"
+#define API_MOMENTS_COMMENT_DELETE @"http://app.wxz.name/api/null"
+#define API_MOMENTS_CREATE_COMMENT @"http://app.wxz.name/api/null"
+/**反馈*/
+#define API_FEEDBACK @"http://app.wxz.name/api/null"
+/**其他*/
+#define API_IMG @"http://hut.wxz.name:8888/%@"
+
+#endif /* HUTAPI_h */
