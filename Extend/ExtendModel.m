@@ -9,13 +9,13 @@
 #import "ExtendModel.h"
 #import "Math.h"
 @implementation ExtendModel
-int startyear                       = 2016;
-int startmonth                      = 8;
-int startday                        = 29;
+int startyear                       = 2017;
+int startmonth                      = 2;
+int startday                        = 20;
 +(NSString*)setDay{
     NSDate *now                               = [NSDate date];
     NSCalendar *calendar                      = [NSCalendar currentCalendar];
-    NSUInteger unitFlags                      = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags                      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *dateComponent           = [calendar components:unitFlags fromDate:now];
     int year                                  = (short)[dateComponent year];//年
     int month                                 =(short) [dateComponent month];//月
@@ -117,7 +117,7 @@ int startday                        = 29;
 +(int)getWeek_solution{
     NSDate *now                               = [NSDate date];
     NSCalendar *calendar                      = [NSCalendar currentCalendar];
-    NSUInteger unitFlags                      = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags                      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *dateComponent           = [calendar components:unitFlags fromDate:now];
     int y                                 = (short)[dateComponent year];//年
     int m                                 =(short) [dateComponent month];//月
@@ -136,7 +136,7 @@ int startday                        = 29;
      jsz 为课程结束的周数，整数 **/
     NSDate *now                               = [NSDate date];
     NSCalendar *calendar                      = [NSCalendar currentCalendar];
-    NSUInteger unitFlags                      = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags                      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *dateComponent           = [calendar components:unitFlags fromDate:now];
     int year                                  = (short)[dateComponent year];//年
     int month                                 =(short) [dateComponent month];//月

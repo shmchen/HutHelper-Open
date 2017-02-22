@@ -12,4 +12,8 @@
 #define HideAllHUD  [MBProgressHUD hideHUDForView:self.view animated:YES];
 @interface Config : NSObject
 
++ (void)setIs:(int )Is;
++ (int )getIs;
++(void)addNotice;
+
 @end

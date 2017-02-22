@@ -19,22 +19,25 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "Config.h"
+
+#import "YCXMenu.h"
 @interface ClassViewController ()<GWPCourseListViewDataSource, GWPCourseListViewDelegate>
 @property (weak, nonatomic) IBOutlet GWPCourseListView *courseListView;
 @property (nonatomic, strong) NSMutableArray<CourseModel*> *courseArr;
 @property (strong, nonatomic) UIScrollView      *scrollView;
 @property (strong, nonatomic) UIView            *exampleView;
+@property (nonatomic , strong) NSMutableArray *items;
 @property (strong, nonatomic) LGPlusButtonsView *plusButtonsViewNavBar;
 @property (strong, nonatomic) LGPlusButtonsView *plusButtonsViewMain;
 @property (strong, nonatomic) LGPlusButtonsView *plusButtonsViewExample;
 @end
 
 @implementation ClassViewController
-
+@synthesize items = _items;
 int getweekday(){
     NSDate *now                                  = [NSDate date];
     NSCalendar *calendar                         = [NSCalendar currentCalendar];
-    NSUInteger unitFlags                         = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags                         = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *dateComponent              = [calendar components:unitFlags fromDate:now];
     int y                                     = (short)[dateComponent year];//年
     int m                                    = (short)[dateComponent month];//月
@@ -81,26 +84,25 @@ NSString *show_xp;
     NSString *now2=[NSString stringWithFormat:@"%d",now_week];
     nowweek_string=[nowweek_string stringByAppendingString:now2];
     nowweek_string=[nowweek_string stringByAppendingString:@"周"];
+    /** 标题栏样式 */
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
     //标题结束//
     self.navigationItem.title                    = nowweek_string;
-        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
-    //------------按钮--------
-    UIBarButtonItem *myButton = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleBordered target:self action:@selector(clickEvent)];
-    self.navigationItem.rightBarButtonItem = myButton;
-    //两个按钮的父类view
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+    /**按钮*/
     UIView *rightButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-    //主页搜索按钮
     UIButton *mainAndSearchBtn = [[UIButton alloc] initWithFrame:CGRectMake(70, 0, 50, 50)];
     [rightButtonView addSubview:mainAndSearchBtn];
-    [mainAndSearchBtn setImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
-    [mainAndSearchBtn addTarget:self action:@selector(reloadcourse) forControlEvents:UIControlEventTouchUpInside];
-    //把右侧的两个按钮添加到rightBarButtonItem
+    [mainAndSearchBtn setImage:[UIImage imageNamed:@"new_menu"] forState:UIControlStateNormal];
+    [mainAndSearchBtn addTarget:self action:@selector(menu) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightCunstomButtonView = [[UIBarButtonItem alloc] initWithCustomView:rightButtonView];
     self.navigationItem.rightBarButtonItem = rightCunstomButtonView;
-    //------------按钮--------
     now_xp=0;
     [self addCourse];
-
+    if ([Config getIs]==1) {
+        [self isxp];
+    }
 }
 
 - (void)addCourse{
@@ -677,6 +679,16 @@ NSString *show_xp;
     
 }
 
+-(void)isxp{
+    NSString *nowweek_string=@"第";
+    NSString *now2=[NSString stringWithFormat:@"%d",now_week];
+    nowweek_string=[nowweek_string stringByAppendingString:now2];
+    nowweek_string=[nowweek_string stringByAppendingString:@"周实验课表"];
+    //标题结束//
+    self.navigationItem.title                    = nowweek_string;
+    now_xp=1;
+    [self addXpCourse];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -747,7 +759,12 @@ NSString *show_xp;
         
 }
 
-
+-(void)toSet{
+    UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ClassViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Set"];
+    AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:YES];
+}
 
 #pragma mark - GWPCourseListViewDataSource
 - (NSArray<id<Course>> *)courseForCourseListView:(GWPCourseListView *)courseListView{
@@ -1013,8 +1030,6 @@ titleBackgroundColorInTopbarAtIndex:(NSInteger)index{
         [_plusButtonsViewNavBar showAnimated:YES completionHandler:nil];
 }
 
-
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -1023,5 +1038,59 @@ titleBackgroundColorInTopbarAtIndex:(NSInteger)index{
     
 }
 
+#pragma mark - 菜单
+-(void)menu{
+    [YCXMenu setTintColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1]];
+    [YCXMenu setSeparatorColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1]];
+    //    [YCXMenu setTitleFont:[UIFont systemFontOfSize:19.0]];
+    //    [YCXMenu setSelectedColor:[UIColor redColor]];
+    if ([YCXMenu isShow]){
+        [YCXMenu dismissMenu];
+    } else {
+        [YCXMenu showMenuInView:self.view fromRect:CGRectMake(self.view.frame.size.width - 50, 70, 50, 0) menuItems:self.items selected:^(NSInteger index, YCXMenuItem *item) {
+            
+        }];
+    }
+    
+}
+
+- (NSMutableArray *)items {
+    if (!_items) {
+        
+        //        // set title
+        //        YCXMenuItem *menuTitle = [YCXMenuItem menuTitle:@"添加失物" WithIcon:nil];
+        //        menuTitle.foreColor = [UIColor whiteColor];
+        //        menuTitle.titleFont = [UIFont boldSystemFontOfSize:20.0f];
+        YCXMenuItem *menuTitle = [YCXMenuItem menuItem:@"课表刷新" image:[UIImage imageNamed:@"reload"] target:self action:@selector(reloadcourse)];
+        menuTitle.foreColor = [UIColor blackColor];
+        menuTitle.alignment = NSTextAlignmentCenter;
+        //set logout button
+        YCXMenuItem *logoutItem = [YCXMenuItem menuItem:@"课表设置" image:[UIImage imageNamed:@"set_black"] target:self action:@selector(toSet)];
+        logoutItem.foreColor = [UIColor blackColor];
+        logoutItem.alignment = NSTextAlignmentCenter;
+        
+        //        //set item
+        _items = [@[menuTitle,
+                    //                    [YCXMenuItem menuItem:@"个人中心"
+                    //                                    image:nil
+                    //                                      tag:100
+                    //                                 userInfo:@{@"title":@"Menu"}],
+                    //                    [YCXMenuItem menuItem:@"ACTION 133"
+                    //                                    image:nil
+                    //                                      tag:101
+                    //                                 userInfo:@{@"title":@"Menu"}],
+                    //                    [YCXMenuItem menuItem:@"检查更新"
+                    //                                    image:nil
+                    //                                      tag:102
+                    //                                 userInfo:@{@"title":@"Menu"}],
+                      logoutItem
+                    ] mutableCopy];
+    }
+    return _items;
+}
+
+- (void)setItems:(NSMutableArray *)items {
+    _items = items;
+}
 
 @end
