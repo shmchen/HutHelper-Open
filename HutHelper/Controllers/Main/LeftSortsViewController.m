@@ -18,11 +18,11 @@
 
 #import "FeedbackViewController.h"
 #import "UMessage.h"
-#import "UMSocialUIManager.h"
+#import <UShareUI/UShareUI.h>
 #import <UMSocialCore/UMSocialCore.h>
 #import "FirstLoginViewController.h"
-#import "User.h"
-#import "YYModel.h"
+#import "Config.h"
+
 #import "LeftUserTableViewCell.h"
 #import "LeftItemTableViewCell.h"
 #import "Config.h"
@@ -82,13 +82,11 @@
     itemCell.backgroundColor             = [UIColor clearColor];
     
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults]; //得到用户数据
-    NSDictionary *User_Data=[defaults objectForKey:@"User"];
-    User *user=[User yy_modelWithJSON:User_Data];
     if (indexPath.row == 0) {
-        if(!user.TrueName){
+        if(!Config.getTrueName){
             userCell.Username.text              = @"个人中心";
         }else{
-            userCell.Username.text                = user.TrueName;
+            userCell.Username.text                = Config.getTrueName;
         }
         userCell.Head.image=[self getImg];
         return userCell;
@@ -148,7 +146,10 @@
     }
     
     if (indexPath.row == 2) {  //分享
-        [self shareWebPageToPlatformType:UMSocialPlatformType_QQ];
+        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)]];
+        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+            [self shareWebPageToPlatformType:platformType];
+        }];
     }
     
     if (indexPath.row == 3) {  //切换用户
@@ -205,30 +206,7 @@
     }];
 }
 
-- (void)shareWithUI {
-    
-    //显示分享面板
-    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMShareMenuSelectionView *shareSelectionView, UMSocialPlatformType platformType) {
-        //创建分享消息对象
-        UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-        
-        //创建网页内容对象
-        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"工大助手" descr:@"工大助手APP是由湖南工业大学计算机学院实验室移动组和网络组，为工大学生开发的产品，志于帮助同学们更加便捷的体验校园生活。" thumImage:[UIImage imageNamed:@"ico"]];
-        //设置网页地址
-        shareObject.webpageUrl =@"http://hugongda.com:8888/res/app/";
-        //分享消息对象设置分享内容对象
-        messageObject.shareObject = shareObject;
-        
-        //调用分享接口
-        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-            if (error) {
-                NSLog(@"************Share fail with error %@*********",error);
-            }else{
-                NSLog(@"response data is %@",data);
-            }
-        }];
-    }];
-}
+
 
 - (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
 {
@@ -254,16 +232,12 @@
 
 -(NSString*)getHeadUrl{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    NSDictionary *User_Data=[defaults objectForKey:@"User"];
-    User *user=[User yy_modelWithJSON:User_Data];
-    return [NSString stringWithFormat:API_IMG,user.head_pic_thumb];
+    return [NSString stringWithFormat:API_IMG,Config.getHeadPicThumb];
 }
 -(void)downHead{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    NSDictionary *User_Data=[defaults objectForKey:@"User"];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    User *user=[User yy_modelWithJSON:User_Data];
-    NSString *image_url=[NSString stringWithFormat:API_IMG,user.head_pic_thumb];
+    NSString *image_url=[NSString stringWithFormat:API_IMG,Config.getHeadPicThumb];
     NSURL *url                   = [NSURL URLWithString: image_url];//接口地址
     [manager downloadImageWithURL:url options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
@@ -293,10 +267,8 @@
 }
 -(UIImage*)getImg{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults]; //得到用户数据
-    NSDictionary *User_Data=[defaults objectForKey:@"User"];
-    User *user=[User yy_modelWithJSON:User_Data];
-    NSString *Url=[NSString stringWithFormat:API_IMG,user.head_pic_thumb];
-    if ((!user.head_pic_thumb)||[user.head_pic_thumb isEqualToString:@""]) {
+    NSString *Url=[NSString stringWithFormat:API_IMG,Config.getHeadPicThumb];
+    if ((!Config.getHeadPicThumb)||[Config.getHeadPicThumb isEqualToString:@""]) {
         return [self circleImage:[UIImage imageNamed:@"img_defalut"]];
     }else if ([defaults objectForKey:@"head_img"]!=NULL){
         return [self circleImage:[UIImage imageWithData:[defaults objectForKey:@"head_img"]]];

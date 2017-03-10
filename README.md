@@ -8,6 +8,10 @@
 - 下载方式: [AppStore](https://itunes.apple.com/cn/app/gong-da-zhu-shou-hu-nan-gong/id1164848835)
 
 # 近期更新
+## V1.9.8   2017.3.8
+- 重构了校园说说，流畅度提升160%
+- 若干小的Bug
+
 ## V1.9.7   2017.2.23
 - 增加了二手市场-我的发布
 - 增加了校园说说-我的说说

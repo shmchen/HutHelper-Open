@@ -46,8 +46,8 @@
     NSUserDefaults *defaults=[[NSUserDefaults alloc] initWithSuiteName:@"group.HutHelper"];
     if (defaults) {
     NSMutableArray *classSolution=[[NSMutableArray alloc]init];
-    if ([defaults objectForKey:@"Class"]!=NULL) {
-        NSArray *array          = [defaults objectForKey:@"Class"];
+    if ([defaults objectForKey:@"kCourse"]!=NULL) {
+        NSArray *array          = [defaults objectForKey:@"kCourse"];
         NSLog(@"%@",array[1]);
         for (int i= 0; i<=(array.count-1); i++) {
             NSDictionary *dict1       = array[i];
@@ -161,7 +161,7 @@
             return @"16:00-15:45";
             break;
         case 9:
-            return @"19:00-20:40";
+            return @"19:00-20:45";
             break;
         default:
             return @"";

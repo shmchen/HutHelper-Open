@@ -7,6 +7,8 @@
 //
 
 #import "Config.h"
+#import "User.h"
+
 static int Is ;
 
 @implementation Config
@@ -18,6 +20,127 @@ static int Is ;
 {
     return Is;
 }
+#pragma mark - 用户信息
++(User*)getUser{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSDictionary *userData=[defaults objectForKey:@"kUser"];
+    User *user=[[User alloc ]initWithDic:userData];
+    return user;
+}
++(NSString*)getStudentKH{
+    User *user=self.getUser;
+    return user.studentKH;
+}
++(NSString*)getUserName{
+    User *user=self.getUser;
+    return user.username;
+}
++(NSString*)getTrueName{
+    User *user=self.getUser;
+    return user.TrueName;
+}
++(NSString*)getAddress{
+    User *user=self.getUser;
+    return user.address;
+}
++(NSString*)getClassName{
+    User *user=self.getUser;
+    return user.class_name;
+}
++(NSString*)getDepName{
+    User *user=self.getUser;
+    return user.dep_name;
+}
++(NSString*)getHeadPicThumb{
+    User *user=self.getUser;
+    return user.head_pic_thumb;
+}
++(NSString*)getLastLogin{
+    User *user=self.getUser;
+    return user.last_login;
+}
++(NSString*)getSex{
+    User *user=self.getUser;
+    return user.sex;
+}
++(NSString*)getUserId{
+    User *user=self.getUser;
+    return user.user_id;
+}
+
++(NSString*)getRememberCodeApp{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"remember_code_app"];
+}
+#pragma mark - 持续化存储
++(void)saveUser:(NSDictionary*)userData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:userData forKey:@"kUser"];
+    [defaults synchronize];
+}
++(void)saveRememberCodeApp:(NSString*)rememberCodeApp{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:rememberCodeApp forKey:@"remember_code_app"];
+    [defaults synchronize];
+}
++(void)saveCourse:(NSArray*)course{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:course forKey:@"kCourse"];
+    [defaults synchronize];
+}
++(void)saveCourseXp:(NSArray*)course{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:course forKey:@"kCourseXp"];
+    [defaults synchronize];
+}
++(void)saveWidgetCourse:(NSArray*)course{
+    NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:@"group.HutHelper"];
+    [shared setObject:course forKey:@"kCourse"];
+    [shared synchronize];
+}
++(void)saveWidgetCourseXp:(NSArray*)course{
+    NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:@"group.HutHelper"];
+    [shared setObject:course forKey:@"kCourseXp"];
+    [shared synchronize];
+}
++(void)saveSay:(NSDictionary*)sayData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:sayData forKey:@"Say"];
+    [defaults synchronize];
+}
++(void)saveSayLikes:(NSDictionary*)sayLikesData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:sayLikesData forKey:@"SayLikes"];
+    [defaults synchronize];
+}
++(void)saveHand:(NSArray*)handData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:handData forKey:@"Hand"];
+    [defaults synchronize];
+}
++(void)saveScore:(NSData*)scoreData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:scoreData forKey:@"Score"];
+    [defaults synchronize];
+}
++(void)saveExam:(NSData*)examData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:examData forKey:@"Exam"];
+    [defaults synchronize];
+}
++(void)saveLost:(NSArray*)lostData{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:lostData forKey:@"Lost"];
+    [defaults synchronize];
+}
+#pragma mark - 版本信息
++(void)saveCurrentVersion:(NSString*)currentVersion{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:currentVersion forKey:@"last_run_version_key"];
+    [defaults synchronize];
+}
+
+#pragma mark - 通知
 +(void)addNotice{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     NSMutableDictionary *noticeDictionary=[[NSMutableDictionary alloc]init];
@@ -25,9 +148,9 @@ static int Is ;
     NSMutableDictionary *noticeDictionary3=[[NSMutableDictionary alloc]init];
     NSMutableDictionary *noticeDictionary4=[[NSMutableDictionary alloc]init];
     NSMutableArray *notice=[[NSMutableArray alloc]init];
-    [noticeDictionary setObject:@"2017-02-21 08:00" forKey:@"time"];
+    [noticeDictionary setObject:@"2017-03-05 24:00" forKey:@"time"];
     [noticeDictionary setObject:@"工大助手" forKey:@"title"];
-    [noticeDictionary setObject:@"工大助手V1.9.6更新日志\n\n- 修改了侧栏界面\n- 增加了二手市场-我的发布\n- 增加了校园说说-我的说说\n- 增加了失物招领-我的发布\n- 修复了实验课表切换时的Bug\n- 修复了二手市场超过页数的Bug\n- 修改了多次登录失败时的提示语\n\n如果您对App有任何建议或者发现了Bug，可以在侧栏-反馈中告诉我们，我们将在第一时间处理。" forKey:@"body"];
+    [noticeDictionary setObject:@"工大助手V1.9.8更新日志\n\n- 重构了校园说说，流畅度提升160%\n- 修复了二手市场虚拟键盘问题\n- 修复了反馈界面虚拟键盘的问题\n- 修复了Widget周次问题 \n- 修改了分享界面 \n\n如果您对App有任何建议或者发现了Bug\n可以在侧栏-反馈中告诉我们，我向您保证每个Bug都会尽快修复，每个意见都会得到回复，另外在AppStore中求个好评🙏" forKey:@"body"];
     [notice insertObject:noticeDictionary atIndex:0];
     [noticeDictionary3 setObject:@"2017-02-20 08:00" forKey:@"time"];
     [noticeDictionary3 setObject:@"开发者的一些话" forKey:@"title"];
