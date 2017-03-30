@@ -7,13 +7,13 @@
 //
 
 #import "FeedbackViewController.h"
-#import "Feedback2ViewController.h"
-#import "ClassViewController.h"
+#import "FeedbackResultViewController.h"
+#import "CourseViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
 
 #import "MBProgressHUD+MJ.h"
-#import "Config.h"
+ 
 @interface FeedbackViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *Mail;
 @property (weak, nonatomic) IBOutlet UITextView *Content;
@@ -82,7 +82,7 @@
     NSURLConnection * conn   = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [conn start];
     UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ClassViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Feedback2"];
+    CourseViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Feedback2"];
     AppDelegate *tempAppDelegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:NO];
     }

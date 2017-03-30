@@ -12,16 +12,15 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "YYFPSLabel.h"
-#import "Config.h"
+ 
 #import "YCXMenu.h"
 #import "User.h"
 #import "AppDelegate.h"
 
-#import "AddSayViewController.h"
+#import "MomentsAddViewController.h"
 @interface MomentsViewController (){
     MomentsTableView *momentsTableView;
     NSMutableArray *datas;
-    
 }
 @property (nonatomic , strong) NSMutableArray *items;
 @property (nonatomic, strong) YYFPSLabel *fpsLabel;
@@ -64,6 +63,11 @@
     }
     
     
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    if ([self.navigationController.viewControllers count]==2&&[Config getIs]==1) {
+        [Config setIs:0];
+    }
 }
 -(void)reLoadData:(NSDictionary*)JSONDic{
     datas = [[NSMutableArray alloc]init];
@@ -153,8 +157,8 @@
 }
 -(void)addSay{
     UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AddSayViewController *addsayViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddSay"];
+    MomentsAddViewController *MomentsAddViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddSay"];
     AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [tempAppDelegate.mainNavigationController pushViewController:addsayViewController animated:NO];
+    [tempAppDelegate.mainNavigationController pushViewController:MomentsAddViewController animated:NO];
 }
 @end
