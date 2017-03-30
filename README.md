@@ -1,13 +1,23 @@
 # 湖南工业大学校园助手iOS端
 ![76@2x](https://o90qqsid7.qnssl.com/76@2x-1.png)
-
 # 项目总体概况
-- 截止到17年1月24日，上架三个月的时间里，iOS端使用者已经达到2500人，另外Android端使用人数已过8000+,主要使用对象为湖南工业大学学生，覆盖全校60%以上人群，iOS端开发语言采用Objective-c，开发软件为Xcode，适配iOS8以上系统，后端数据部分采用JSON。
-- 此仓库为工大助手开源版本，与线上版本除了HUTAPI.h接口文件不同，其他全部一样，并且代码实时更新在Github，其中因为刚入门学习iOS，代码与结构很混乱，目前有在很努力的重构，但水平有限，如果有建议(值得学习的项目结构/代码规范/界面建议/xxx功能实现方式的建议),希望可以在Issues中指出，语气严厉点不要紧，万分感谢
+- 截止到17年3月18日，iOS端用户量已经达到3000人，另外Android端用户量已过8000,主要使用对象为湖南工业大学学生，覆盖全校60%以上人群。
+- iOS端开发语言采用Objective-C，开发软件为Xcode，适配iOS8以上系统。
+- 此仓库为工大助手开源版本，与线上版本除了HUTAPI.h接口文件不同，其他全部一样。
+- 目前大二在读，代码将实时更新在Github，目前正在努力重构，如果有建议希望能在Issues中指出
 
-- 下载方式: [AppStore](https://itunes.apple.com/cn/app/gong-da-zhu-shou-hu-nan-gong/id1164848835)
+- iOS端下载方式: [AppStore](https://itunes.apple.com/cn/app/gong-da-zhu-shou-hu-nan-gong/id1164848835)
+- Android端下载: [工大助手](http://hugongda.top:8888/res/app/)
+- Win10端下载: [工大助手](http://hugongda.top:8888/res/app/)
+- Web端:[工大导航](http://hugongda.top:8888/)
+- 开发者博客:[Nine's Blog](http://www.wxz.name)
 
 # 近期更新
+## V1.9.9   2017.3.20
+- 修改了校园说说配色
+- 修改了校园说说相同课程相同颜色
+- 新增了切换用户提示语
+
 ## V1.9.8   2017.3.8
 - 重构了校园说说，流畅度提升160%
 - 若干小的Bug
