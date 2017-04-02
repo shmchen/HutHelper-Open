@@ -164,7 +164,7 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 其目的是，如果有其他学校的同学也需要开发一个服务于自己母校的iOS App，可以从这得到一定的参考
 如果有任何问题也可以在issues留言
 
-我的个人网站是[www.wxz.name](www.wxz.name)
+我的个人网站是[www.wxz.name](http://www.wxz.name)
 
 **求一个Star鼓励**
 # License
