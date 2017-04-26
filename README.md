@@ -33,7 +33,7 @@
 	│       └── Hand：二手市场界面
 	├── Extend:课程表Widget
 	└── Pods：项目使用了[CocoaPods](http://code4app.com/article/cocoapods-install-usage)这个类库管理工具
-	└── json:接口数据
+	└── JSON:接口数据
 ```
 ## Clone
 因文件比较大，建议挂代理Clone，或者只Clone最新版本。
