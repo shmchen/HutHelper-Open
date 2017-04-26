@@ -60,9 +60,6 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 - [YYModel - Json转Model](https://github.com/ibireme/YYModel)
 - [AFNetworking - 请求异步加载](https://github.com/AFNetworking/AFNetworking)
 
-# License
-[Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
-
 # 界面
 ![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![主界面](http://img.wxz.name/IMG_1364.png?imageView2/2/w/252/h/450/interlace/0/q/41)
@@ -80,6 +77,8 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 ![](http://img.wxz.name/github/20170426151539_3MUsyQ_IMG_0907.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![](http://img.wxz.name/github/20170426151539_5ro9oG_IMG_0903.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 
+# License
+[Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 
 
