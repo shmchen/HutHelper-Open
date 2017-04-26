@@ -144,17 +144,17 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 [Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 # 界面
-![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![主界面](http://img.wxz.name/IMG_1364.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![成绩](http://img.wxz.name/github/20170426151539_trlelR_IMG_0900.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![所有成绩查询](http://img.wxz.name/github/20170426151539_oucdIa_IMG_0902.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![课程表](http://img.wxz.name/github/20170426151539_FSbFF5_IMG_0898.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![](http://img.wxz.name/github/20170426151539_Z47HZw_IMG_0904.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![图书馆](http://img.wxz.name/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![网上作业](http://img.wxz.name/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![](http://img.wxz.name/github/20170426151539_zK1rOn_IMG_0906.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![](http://img.wxz.name/github/20170426151539_3MUsyQ_IMG_0907.png?imageView2/2/w/350/h/100/interlace/0/q/41)
-![](http://img.wxz.name/github/20170426151539_5ro9oG_IMG_0903.png?imageView2/2/w/350/h/100/interlace/0/q/41)
+![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![主界面](http://img.wxz.name/IMG_1364.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![成绩](http://img.wxz.name/github/20170426151539_trlelR_IMG_0900.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![所有成绩查询](http://img.wxz.name/github/20170426151539_oucdIa_IMG_0902.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![课程表](http://img.wxz.name/github/20170426151539_FSbFF5_IMG_0898.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_Z47HZw_IMG_0904.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![图书馆](http://img.wxz.name/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![网上作业](http://img.wxz.name/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_zK1rOn_IMG_0906.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_3MUsyQ_IMG_0907.png?imageView2/2/w/350/h/625/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_5ro9oG_IMG_0903.png?imageView2/2/w/350/h/625/interlace/0/q/41)
 
 
 
