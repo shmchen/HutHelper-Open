@@ -106,6 +106,20 @@
     LostShowTimeTableViewCell *cellTime=[LostShowTimeTableViewCell tableViewCell];
     NSArray *photo=[_lostData[indexPath.section] objectForKey:@"pics"];
     tableView.separatorStyle = NO;
+    cellPhoto.Img11.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img11.clipsToBounds = YES;
+    cellPhoto.Img21.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img21.clipsToBounds = YES;
+    cellPhoto.Img22.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img22.clipsToBounds = YES;
+    cellPhoto.Img41.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img41.clipsToBounds = YES;
+    cellPhoto.Img42.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img42.clipsToBounds = YES;
+    cellPhoto.Img43.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img43.clipsToBounds = YES;
+    cellPhoto.Img44.contentMode =UIViewContentModeScaleAspectFill;
+    cellPhoto.Img44.clipsToBounds = YES;
     if (indexPath.row==0){//信息
         cell.tit.text=[self getTit:(short)indexPath.section];
         cell.locate.text=[self getLocate:(short)indexPath.section];
@@ -426,17 +440,11 @@
     return _items;
 }
 -(void)addLost{
-        UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LostAddViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddLosta"];
-        AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:YES];
+     [Config pushViewController:@"AddLosta"];
 }
 -(void)myLost{
     /**设置不缓存*/
-    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0
-                                                            diskCapacity:0
-                                                                diskPath:nil];
-    [NSURLCache setSharedURLCache:sharedCache];
+    [Config setNoSharedCache];
     [MBProgressHUD showMessage:@"加载中" toView:self.view];
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     /**拼接地址*/
@@ -458,10 +466,7 @@
                      [defaults synchronize];
                      HideAllHUD
                      [Config setIs:1];
-                     UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                     LostShowViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LostShow"];
-                     AppDelegate *tempAppDelegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                     [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:NO];
+                     [Config pushViewController:@"LostShow"];
                  }
                  else{
                      HideAllHUD
@@ -473,7 +478,7 @@
                  [MBProgressHUD showError:[Say_All objectForKey:[Say_All objectForKey:@"msg"]]];
              }             HideAllHUD
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             [MBProgressHUD showError:@"网络超时，请检查网络并重试"];
+             [MBProgressHUD showError:@"网络超时"];
              HideAllHUD
          }];
 }

@@ -76,8 +76,6 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 
 **如果要进行二次开发，可以直接把请求的地址改成自己后端的地址，然后把接受的数据改一下即可.**
 
-# 上架情况
-![](https://o90qqsid7.qnssl.com/14853135352743.jpg)
 # 功能介绍
 ## 登录界面
 登录界面采用简洁的方式展示。
@@ -85,7 +83,6 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 如果成功--->存储Json至NSUserDefault
 如果失败--->返回Msg提示信息
 
-![登录界面](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2018.56.58.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 ## 主界面
 主界面是直接用xib做的,图片直接使用UI给的图片,另外的话有很多数据是在这个界面初始化的
 
@@ -96,34 +93,18 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 - 初始化抽屉界面
 - ...
 
-![主界面](https://o90qqsid7.qnssl.com/IMG_1364.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 
-
-## 成绩查询
-- 总体成绩显示
-
-![曲线成绩](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-
-- 成绩查询
-
-![所有成绩查询](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2-%E9%80%89%E6%8B%A9%E5%AD%A6%E6%9C%9F.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 ## 课程表
 这里使用了[GWPCourseListView - 课程表界面](https://github.com/GanWenpeng/GWPCourseListView)开源项目，做了一些调整，并且修复了一些bug，开发者已经接受了我的pull。
 同时自己集成了[LGPlusButtonsView - 按钮控件](https://github.com/Friend-LGA/LGPlusButtonsView)开源项目的按钮控件，使课程表数据可以上下周的调整。
 - 另外加入了实验课程表，可以单独显示，也可以在设置里面设置成一起显示
 
-![课程表](https://o90qqsid7.qnssl.com/IMG_1365.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-
 ## 考试计划
 考试计划中将显示教务处正在计划和已经确定的考试
 用的自定义tableview做的，很简单的绘制一个cell，然后将Json的数据与之交互
 
-![IMG_1366](https://o90qqsid7.qnssl.com/IMG_1366.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-
 ## 电费查询
 简单的调用接口查询，没什么技术含量
-
-![IMG_1367](https://o90qqsid7.qnssl.com/IMG_1367.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 
 ## 校园说说
 这个部分最大的问题就是适配的问题,有的图片多，有的文字多，怎么决定这个长度呢
@@ -131,17 +112,11 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 这样首先根据文字的长度，分配第一个cell也就是文字的高度
 然后根据图片的部分，分配第二个cell也就是图片的高度
 
-![IMG_1371](https://o90qqsid7.qnssl.com/IMG_1371.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 ## 二手市场
 每个cell显示两个商品，很简单的做法
 
-![IMG_1372](https://o90qqsid7.qnssl.com/IMG_1372.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 ## 图书馆/校园说说/二手市场/网上作业
 这两个部分因为没有接口，所以直接用web端做的
-
-![图书馆](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-
-![网上作业](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 
 # 项目使用的开源项目
 - [LeftSlide - 主界面框架](https://github.com/chennyhuang/LeftSlide)
@@ -164,10 +139,23 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 其目的是，如果有其他学校的同学也需要开发一个服务于自己母校的iOS App，可以从这得到一定的参考
 如果有任何问题也可以在issues留言
 
-我的个人网站是[www.wxz.name](http://www.wxz.name)
+我的个人网站是[www.wxz.name](www.wxz.name)
 
 **求一个Star鼓励**
 # License
 [Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+# 界面
+![登录界面](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2018.56.58.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![主界面](https://o90qqsid7.qnssl.com/IMG_1364.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![曲线成绩](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![所有成绩查询](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2-%E9%80%89%E6%8B%A9%E5%AD%A6%E6%9C%9F.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![课程表](https://o90qqsid7.qnssl.com/IMG_1365.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![IMG_1366](https://o90qqsid7.qnssl.com/IMG_1366.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![IMG_1367](https://o90qqsid7.qnssl.com/IMG_1367.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![IMG_1371](https://o90qqsid7.qnssl.com/IMG_1371.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![IMG_1372](https://o90qqsid7.qnssl.com/IMG_1372.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![图书馆](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![网上作业](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/400/h/800/interlace/0/q/41)
 
 

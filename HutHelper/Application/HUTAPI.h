@@ -16,6 +16,7 @@
 /**成绩查询*/
 #define API_SCORES @"http://app.wxz.name/api/Score"
 #define API_EXAM @"http://app.wxz.name/api/Exam"
+#define API_RANK @"http://app.wxz.name/api/Rank"
 /**登录界面*/
 #define API_LOGIN @"http://app.wxz.name/api/Login"
 #define API_LOGIN_RESET @"http://app.wxz.name/api/null"
@@ -47,6 +48,8 @@
 #define API_MOMENTS_CREATE_COMMENT @"http://app.wxz.name/api/null"
 #define API_MOMENTS_LIKES_CREATE @"http://app.wxz.name/api/null"
 #define API_MOMENTS_LIKES_SHOW @"http://app.wxz.name/api/null"
+/**视频专栏*/
+#define API_VEDIO_SHOW @"http://vedio.wxz.name/api/vedio.html"
 /**反馈*/
 #define API_FEEDBACK @"http://app.wxz.name/api/null"
 /**其他*/
@@ -55,7 +58,7 @@
 /**AppKey*/
 #define APPKEY_UMESSAGE @"57fe13d867e58e0e59000ca1"
 #define APPKEY_QQ_SECRET @"y7n6BRLtnH9mrFT3"
-#define APPKEY_SINA_SECRET @"ba2997aaab6a1602406fc94247dc072d"
+#define APPKEY_SINA_SECRET @"ba2997aaab6a1602406fc94247dc072d" 
 #define APPKEY_WECHAT_SECRET @"8bb26c6a577e61f0bbee160dde7e79af"
 
 #endif /* HUTAPI_h */

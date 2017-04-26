@@ -31,7 +31,10 @@
 #import "LeftSortsViewController.h"
 #import "MomentsViewController.h"
 #import "APIRequest.h"
+#import "VedioPlayViewController.h"
 #define vBackBarButtonItemName  @"backArrow.png"    //导航条返回默认图片名
+#define ERROR_MSG_INVALID @"登录过期,请重新登录"
+
 @interface MainPageViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *Scontent;
 @property (weak, nonatomic) IBOutlet UILabel *Time;
@@ -56,9 +59,7 @@ int class_error_;
 }
 #pragma mark - 各按钮事件
 - (IBAction)ClassFind:(id)sender {  //课表界面
-    NSArray *Class                            = [Config getCourse];
-    NSArray *ClassXP                            = [Config getCourseXp];
-    if((!Class)&&(!ClassXP)){
+    if(([Config getCourse]==nil)||([Config getCourseXp]==nil)){
         [MBProgressHUD showMessage:@"查询中" toView:self.view];
         NSString *urlString=[NSString stringWithFormat:API_CLASS,Config.getStudentKH,Config.getRememberCodeApp];
         NSString *urlXpString=[NSString stringWithFormat:API_CLASSXP,Config.getStudentKH,Config.getRememberCodeApp];
@@ -91,10 +92,12 @@ int class_error_;
                     }];
                 }
             }else if([msg isEqualToString:@"令牌错误"]){
-                [MBProgressHUD showError:@"登录过期,请重新登录"];
+                [MBProgressHUD showError:ERROR_MSG_INVALID];
+                HideAllHUD
             }
             else{
                 [MBProgressHUD showError:msg];
+                HideAllHUD
             }
         } failure:^(NSError *error) {
             HideAllHUD
@@ -105,10 +108,8 @@ int class_error_;
         [Config pushViewController:@"Class"];
     }
 } //课程表
-- (IBAction)ClassXPFind:(id)sender {  //课表界面
-    NSArray *Class                            = [Config getCourse];
-    NSArray *ClassXP                            = [Config getCourseXp];
-    if((!Class)&&(!ClassXP)){
+- (IBAction)ClassXPFind:(id)sender {  //实验课表
+    if(([Config getCourse]==nil)||([Config getCourseXp]==nil)){
         [MBProgressHUD showMessage:@"查询中" toView:self.view];
         NSString *urlString=[NSString stringWithFormat:API_CLASS,Config.getStudentKH,Config.getRememberCodeApp];
         NSString *urlXpString=[NSString stringWithFormat:API_CLASSXP,Config.getStudentKH,Config.getRememberCodeApp];
@@ -127,34 +128,35 @@ int class_error_;
                             NSArray *arrayCourseXp= responseObject[@"data"];
                             [Config saveCourseXp:arrayCourseXp];
                             [Config saveWidgetCourseXp:arrayCourseXp];
-                            [Config setIs:1];
-                            [Config pushViewController:@"Class"];
-                            HideAllHUD
+                            [Config pushViewController:@"ClassXp"];
                         }
                         else{
-                            [Config pushViewController:@"Class"];
+                            [Config pushViewController:@"ClassXp"];
                             [MBProgressHUD showError:msg];
-                            HideAllHUD
                         }
+                        HideAllHUD
                     } failure:^(NSError *error) {
                         [MBProgressHUD showError:@"网络超时，实验课表查询失败"];
+                        HideAllHUD
                     }];
                 }
             }else if([msg isEqualToString:@"令牌错误"]){
-                [MBProgressHUD showError:@"登录过期,请重新登录"];
+                [MBProgressHUD showError:ERROR_MSG_INVALID];
+                HideAllHUD
             }
             else{
                 [MBProgressHUD showError:msg];
+                HideAllHUD
             }
-            
         } failure:^(NSError *error) {
             HideAllHUD
             [MBProgressHUD showError:@"网络超时，平时课表查询失败"];
         }];
     }else{
-        [Config setIs:1];
-        [Config pushViewController:@"Class"];
+        [Config pushViewController:@"ClassXp"];
     }
+    
+
 } //实验课表
 - (IBAction)HomeWork:(id)sender {
     [Config pushViewController:@"HomeWork"];
@@ -164,6 +166,14 @@ int class_error_;
 } //电费查询
 - (IBAction)SchoolSay:(id)sender {
     [Config setNoSharedCache];
+    if ([Config getSay]!=nil) {
+        [Config setIs:0];
+        MomentsViewController *Say      = [[MomentsViewController alloc] init];
+        AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [tempAppDelegate.mainNavigationController pushViewController:Say animated:YES];
+        return;
+    }
+    
     [MBProgressHUD showMessage:@"加载中" toView:self.view];
     NSString *urlString=[NSString stringWithFormat:API_MOMENTS,1];
     NSString *urlLikesString=[NSString stringWithFormat:API_MOMENTS_LIKES_SHOW,Config.getStudentKH,Config.getRememberCodeApp];
@@ -203,6 +213,13 @@ int class_error_;
 } //校园说说
 - (IBAction)SchoolHand:(id)sender {
     [Config setNoSharedCache];
+    if ([Config getHand]!=nil) {
+        [Config setIs:0];
+        HandTableViewController *hand=[[HandTableViewController alloc]init];
+        AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [tempAppDelegate.mainNavigationController pushViewController:hand animated:YES];
+        return;
+    }
     [MBProgressHUD showMessage:@"加载中" toView:self.view];
     NSString *urlString=[NSString stringWithFormat:API_GOODS,1];
     [APIRequest GET:urlString parameters:nil success:^(id responseObject){
@@ -215,44 +232,62 @@ int class_error_;
         [tempAppDelegate.mainNavigationController pushViewController:hand animated:YES];
         HideAllHUD
     }failure:^(NSError *error){
-        [MBProgressHUD showError:@"网络超时，请检查网络并重试"];
+        [MBProgressHUD showError:@"网络超时"];
         HideAllHUD
     }];
 } //二手市场
 - (IBAction)Score:(id)sender {
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    NSData* scoreData           = [defaults objectForKey:@"Score"];
-    if(!scoreData){
+    if((![defaults objectForKey:@"Score"])||(![defaults objectForKey:@"ScoreRank"])){
         [MBProgressHUD showMessage:@"查询中" toView:self.view];
         NSString *shaString=[Math sha1:[NSString stringWithFormat:@"%@%@%@",Config.getStudentKH,Config.getRememberCodeApp,@"f$Z@%"]];
         NSString *urlString=[NSString stringWithFormat:API_SCORES,Config.getStudentKH,Config.getRememberCodeApp,shaString];
-        /**设置超时*/
-        [APIRequest GET:urlString parameters:nil success:^(id responseObject){
+        [APIRequest GET:urlString parameters:nil timeout:8.0 success:^(id responseObject){
             NSData *scoreData =    [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
             NSString *msg=responseObject[@"msg"];
             if([msg isEqualToString:@"ok"]){
                 [Config saveScore:scoreData];
-                [Config pushViewController:@"ScoreShow"];
+                NSString *urlRankString=[NSString stringWithFormat:API_RANK,Config.getStudentKH,Config.getRememberCodeApp];
+                [APIRequest GET:urlRankString parameters:nil timeout:8.0 success:^(id responseObject) {
+                    if ([responseObject[@"msg"]isEqualToString:@"ok"]) {
+                        [Config saveScoreRank:responseObject[@"data"]];
+                        [Config pushViewController:@"ScoreShow"];
+                        HideAllHUD
+                    }else{
+                        [MBProgressHUD showError:@"排名查询错误"];
+                        HideAllHUD
+                    }
+                } failure:^(NSError *error) {
+                    [MBProgressHUD showError:@"网络超时"];
+                    HideAllHUD
+                }];
+                
             }else if([msg isEqualToString:@"令牌错误"]){
-                [MBProgressHUD showError:@"登录过期,请重新登录"];
+                [MBProgressHUD showError:ERROR_MSG_INVALID];
+                HideAllHUD
             }else{
                 [MBProgressHUD showError:msg];
+                HideAllHUD
             }
-            HideAllHUD
+            
         }failure:^(NSError *error){
-            [MBProgressHUD showError:@"网络超时，请检查网络并重试"];
+            [MBProgressHUD showError:@"网络超时"];
             HideAllHUD
         }];
     }else{
         [Config pushViewController:@"ScoreShow"];
+        
     }
 } //成绩查询
 - (IBAction)Library:(id)sender {
     [Config pushViewController:@"Library"];
 } //图书馆
 - (IBAction)Exam:(id)sender {
+    if ([Config getExam]!=nil) {
+        [Config pushViewController:@"Exam"];
+        return;
+    }
     [MBProgressHUD showMessage:@"查询中" toView:self.view];
-    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     NSString *urlString=[NSString stringWithFormat:API_EXAM,Config.getStudentKH,[Math md5:[Config.getStudentKH stringByAppendingString:@"apiforapp!"]]];
     [APIRequest GET:urlString parameters:nil success:^(id responseObject) {
         NSData *Exam_data =    [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
@@ -260,13 +295,13 @@ int class_error_;
             NSMutableArray *array             = responseObject[@"res"][@"exam"];
             [Config saveExam:Exam_data];
             if(array.count!=0){
-                [Config pushViewController:@"ExamNew"];
+                [Config pushViewController:@"Exam"];
             } else{
                 [MBProgressHUD showError:@"计划表上暂无考试"];
             }
         }else{
-            if ([defaults objectForKey:@"Exam"]) {
-                [Config pushViewController:@"ExamNew"];
+            if ([Config getExam]) {
+                [Config pushViewController:@"Exam"];
                 [MBProgressHUD showError:@"超时,显示本地数据"];
             }else{
                 [MBProgressHUD showError:responseObject[@"message"]];
@@ -274,8 +309,8 @@ int class_error_;
         }
         HideAllHUD
     } failure:^(NSError *error) {
-        if ([defaults objectForKey:@"Exam"]) {
-            [Config pushViewController:@"ExamNew"];
+        if ([Config getExam]) {
+            [Config pushViewController:@"Exam"];
             [MBProgressHUD showError:@"超时,显示本地数据"];
         }else{
             [MBProgressHUD showError:@"网络错误"];
@@ -304,13 +339,31 @@ int class_error_;
         }
         HideAllHUD
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"网络超时，请检查网络并重试"];
+        [MBProgressHUD showError:@"网络超时"];
         HideAllHUD
     }];
 }  //失物招领
 - (IBAction)Notice:(id)sender {
     [Config pushViewController:@"Notice"];
 } //通知界面
+- (IBAction)Vedio:(id)sender { //视频专栏
+    [Config setNoSharedCache];
+    if ([Config getVedio]) {
+        [Config pushViewController:@"Vedio"];
+        return;
+    }
+    [MBProgressHUD showMessage:@"加载中" toView:self.view];
+    [APIRequest GET:API_VEDIO_SHOW parameters:nil success:^(id responseObject) {
+        [Config saveVedio:responseObject];
+        [Config pushViewController:@"Vedio"];
+        HideAllHUD
+    }failure:^(NSError *error) {
+        [MBProgressHUD showError:@"网络超时"];
+        HideAllHUD
+    }];
+    
+} //视频专栏
+
 #pragma mark - 其他方法
 - (void)SetTimeLabel{
     NSDate *now                               = [NSDate date];
@@ -376,7 +429,6 @@ int class_error_;
     [self.navigationController.navigationBar lt_reset];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    
     [super viewWillAppear:animated];
     AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [tempAppDelegate.LeftSlideVC setPanEnabled:YES];
@@ -466,19 +518,14 @@ int class_error_;
     NSLog(@"当前版本%@",currentVersion);
     NSLog(@"上个版本%@",lastRunKey);
     if (lastRunKey==NULL) {
-        NSString *appDomain       = [[NSBundle mainBundle] bundleIdentifier];
-        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+        [Config removeUserDefaults];
         [defaults setObject:currentVersion forKey:@"last_run_version_key"];
         NSLog(@"没有记录");
-        
-    }
-    //    else if ([lastRunKey isEqualToString:@"1.9.5"]||[lastRunKey isEqualToString:@"1.9.6"]||[lastRunKey isEqualToString:@"1.9.7"]){
-    //        [defaults setObject:currentVersion forKey:@"last_run_version_key"];
-    //        [Config addNotice];
-    //    }
-    else if (![lastRunKey isEqualToString:currentVersion]) {
-        NSString *appDomain       = [[NSBundle mainBundle] bundleIdentifier];
-        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    }else if ([lastRunKey isEqualToString:@"1.9.9"]||[lastRunKey isEqualToString:@"2.0.0"]||[lastRunKey isEqualToString:@"2.1.0"]){
+        [defaults setObject:currentVersion forKey:@"last_run_version_key"];
+        [Config addNotice];
+    }else if (![lastRunKey isEqualToString:currentVersion]) {
+        [Config removeUserDefaults];
         [defaults setObject:currentVersion forKey:@"last_run_version_key"];
         NSLog(@"记录不匹配");
     }

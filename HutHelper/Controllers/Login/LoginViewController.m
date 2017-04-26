@@ -18,8 +18,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "User.h"
 
- 
-#import "UMMobClick/MobClick.h"
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *UserName;
 @property (weak, nonatomic) IBOutlet UITextField *Password;
@@ -62,16 +61,7 @@
                                              objectForKey:@"CFBundleShortVersionString"]];
                  [Config addNotice];
                  /**设置友盟标签&别名*/
-                 User *user=[[User alloc]initWithDic:userData];
-                 [MobClick profileSignInWithPUID:user.studentKH];
-                 [UMessage addTag:user.class_name
-                         response:^(id responseObject, NSInteger remain, NSError *error) {
-                         }];//班级
-                 [UMessage addTag:user.dep_name
-                         response:^(id responseObject, NSInteger remain, NSError *error) {
-                         }];  //学院
-                 [UMessage addAlias:user.studentKH type:kUMessageAliasTypeSina response:^(id responseObject, NSError *error) {
-                 }];
+                 [Config saveUmeng];
                  [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:([self.navigationController.viewControllers count] -2)] animated:YES];  //返回上一个View
                  HideAllHUD
              }
@@ -83,10 +73,7 @@
                          //点击按钮的响应事件；
                      }]];
                      [alert addAction:[UIAlertAction actionWithTitle:@"修改密码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                         UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                         ResetPassWordViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Login2"];
-                         AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                         [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:YES];
+                          [Config pushViewController:@"Login2"];
                      }]];
                      //弹出提示框；
                      [self presentViewController:alert animated:true completion:nil];
@@ -122,18 +109,9 @@
     
 }
 - (IBAction)resetpassword:(id)sender {
-    UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ResetPassWordViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Login2"];
-    AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:YES];
+    [Config pushViewController:@"Login2"];
 }
 
--(void)sein{
-    UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ResetPassWordViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Login2"];
-    AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:NO];
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;

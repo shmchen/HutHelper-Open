@@ -764,10 +764,8 @@ NSString *show_xp;
         }
         if (selects[checksum]==0) {//第一次配色，设置颜色
             selects[checksum]=selectss++;
-            NSLog(@"第一次颜色%d，%d:%@",selects[checksum],checksum,[course.courseName substringToIndex:range.location]);
             return lightColorArr[selects[checksum]];
         }else{//第二次配色，取之前颜色
-            NSLog(@"相同颜色%d，%d:%@",selects[checksum],checksum,[course.courseName substringToIndex:range.location]);
             return lightColorArr[selects[checksum]];
         }
     }
@@ -1060,18 +1058,6 @@ NSString *show_xp;
         
         //        //set item
         _items = [@[menuTitle,
-                    //                    [YCXMenuItem menuItem:@"个人中心"
-                    //                                    image:nil
-                    //                                      tag:100
-                    //                                 userInfo:@{@"title":@"Menu"}],
-                    //                    [YCXMenuItem menuItem:@"ACTION 133"
-                    //                                    image:nil
-                    //                                      tag:101
-                    //                                 userInfo:@{@"title":@"Menu"}],
-                    //                    [YCXMenuItem menuItem:@"检查更新"
-                    //                                    image:nil
-                    //                                      tag:102
-                    //                                 userInfo:@{@"title":@"Menu"}],
                     logoutItem
                     ] mutableCopy];
     }

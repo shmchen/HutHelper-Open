@@ -11,8 +11,11 @@
 #import "UMMobClick/MobClick.h"
 #import "AppDelegate.h"
 #import "Score.h"
+#import "ScoreRank.h"
 @interface ScoreShowViewController ()
-
+@property (nonatomic,copy)NSMutableArray *termMutableArray;
+@property (nonatomic,copy)NSMutableArray *yearMutableArray;
+@property (nonatomic,copy)ScoreRank *scoreRank;
 @end
 
 @implementation ScoreShowViewController
@@ -22,14 +25,11 @@
     //设置标题
     [self setTitle];
     [self setOther];
-    [self setJd];
+    //[self setJd];
     [self setScale];
+   [self setRank];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -51,10 +51,7 @@
     
 }
 - (IBAction)PushScoreData:(id)sender {
-    UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ScoreShowViewController *Score      = [main instantiateViewControllerWithIdentifier:@"ScoreData"];
-    AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [tempAppDelegate.mainNavigationController pushViewController:Score animated:YES];
+    [Config pushViewController:@"ScoreData"];
 }
 #pragma - 其他
 -(void)setTitle{
@@ -66,110 +63,47 @@
 }
 -(void)setOther{
     Score *score=[[Score alloc]init];
-    _Wtg.text=[NSString stringWithFormat:@"%d",[score getWtg]];
-    _Zjd.text=[NSString stringWithFormat:@"%.2lf",[score getZxf]];
+    _scoreRank=[[ScoreRank alloc]initWithArray:[Config getScoreRank]];
+    self.Wtg.text=[NSString stringWithFormat:@"%d",[score getWtg]];
+    self.Zjd.text=[NSString stringWithFormat:@"%.2lf",[score getZxf]];
+    self.Rank.text=_scoreRank.rank;
 }
--(void)setJd{
-    Score *score=[[Score alloc]init];
-    NSUserDefaults *defalut=[NSUserDefaults standardUserDefaults];
-    NSString *xf_2013_1=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2013-2014第1学期"]];
-    NSString *xf_2013_2=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2013-2014第2学期"]];
-    NSString *xf_2014_1=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2014-2015第1学期"]];
-    NSString *xf_2014_2=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2014-2015第2学期"]];
-    NSString *xf_2015_1=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2015-2016第1学期"]];
-    NSString *xf_2015_2=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2015-2016第2学期"]];
-    NSString *xf_2016_1=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2016-2017第1学期"]];
-    NSString *xf_2016_2=[NSString stringWithFormat:@"%.2lf",[score getZxf:@"2016-2017第2学期"]];
-    int grade;
-    if([score getZxf:@"2013-2014第1学期"] != 0.0){  //大四
-        _D11.text=xf_2013_1;
-        _D12.text=xf_2013_2;
-        _D21.text=xf_2014_1;
-        _D22.text=xf_2014_2;
-        _D31.text=xf_2015_1;
-        _D32.text=xf_2015_2;
-        _D41.text=xf_2016_1;
-        _D42.text=xf_2016_2;
-        _P11.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2013-2014第1学期"]/5.0];
-        _P12.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2013-2014第2学期"]/5.0];
-        _P21.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2014-2015第1学期"]/5.0];
-        _P22.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2014-2015第2学期"]/5.0];
-        _P31.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2015-2016第1学期"]/5.0];
-        _P32.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2015-2016第2学期"]/5.0];
-        _P41.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2017第1学期"]/5.0];
-        _P42.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2016第2学期"]/5.0];
-        _D11.hidden=false, _T11.hidden=false,_P11.hidden=false;
-        _D12.hidden=false, _T12.hidden=false,_P12.hidden=false;
-        _D21.hidden=false, _T21.hidden=false,_P21.hidden=false;
-        _D22.hidden=false, _T22.hidden=false,_P22.hidden=false;
-        _D31.hidden=false, _T31.hidden=false,_P31.hidden=false;
-        _D32.hidden=false, _T32.hidden=false,_P32.hidden=false;
-        _D41.hidden=false, _T41.hidden=false,_P41.hidden=false;
-        _D42.hidden=false, _T42.hidden=false,_P42.hidden=false;
-        grade=42;
-        if ([score getZxf:@"2016-2017第2学期"]==0.0) {//下学期
-            _D42.hidden=true, _T42.hidden=true,_P42.hidden=true;
-            grade=41;
-        }
-    }
-    else if ([score getZxf:@"2014-2015第1学期"] != 0.0){ //大三
-        _D11.text=xf_2014_1;
-        _D12.text=xf_2014_2;
-        _D21.text=xf_2015_1;
-        _D22.text=xf_2015_2;
-        _D31.text=xf_2016_1;
-        _D32.text=xf_2016_2;
-        _P11.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2014-2015第1学期"]/5.0];
-        _P12.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2014-2015第2学期"]/5.0];
-        _P21.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2015-2016第1学期"]/5.0];
-        _P22.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2015-2016第2学期"]/5.0];
-        _P31.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2017第1学期"]/5.0];
-        _P32.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2016第2学期"]/5.0];
-        _D11.hidden=false, _T11.hidden=false,_P11.hidden=false;
-        _D12.hidden=false, _T12.hidden=false,_P12.hidden=false;
-        _D21.hidden=false, _T21.hidden=false,_P21.hidden=false;
-        _D22.hidden=false, _T22.hidden=false,_P22.hidden=false;
-        _D31.hidden=false, _T31.hidden=false,_P31.hidden=false;
-        _D32.hidden=false, _T32.hidden=false,_P32.hidden=false;
-        grade=32;
-        if ([score getZxf:@"2016-2017第2学期"]==0.0) //下学期
-            _D32.hidden=true, _T32.hidden=true,_P32.hidden=false,grade=31;
+
+-(void)setRank{
+    for (int i=0; i<_scoreRank.termMutableArray.count;i++) {
+        ScoreRank *scoreRank=_scoreRank.termMutableArray[i];
+        //学期
+        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(SYReal(35),SYReal(317+i*26),SYReal(200),SYReal(22))];
+        label.font=[UIFont systemFontOfSize: 10.0];
+        label.text=[NSString stringWithFormat:@"%@第%@学期",scoreRank.year,scoreRank.term];
+        label.textColor=[UIColor whiteColor];
+        [self.view addSubview:label];
+        //绩点条
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(SYReal(150), SYReal(317+i*26), SYReal(180), SYReal(22))];
+        imageView.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[scoreRank.GPA doubleValue]/5.0];
+        imageView.contentMode =UIViewContentModeLeft;
+        imageView.clipsToBounds = YES;
+        imageView.alpha=0.7;
+        [self.view addSubview:imageView];
+        //绩点
+        UILabel *labelGPA=[[UILabel alloc]initWithFrame:CGRectMake(SYReal(301),SYReal(317+i*26),SYReal(71),SYReal(22))];
+        labelGPA.font=[UIFont systemFontOfSize: 13.0];
+        labelGPA.text=scoreRank.GPA;
+        labelGPA.textColor=[UIColor whiteColor];
+        labelGPA.textAlignment = NSTextAlignmentRight;
+        [self.view addSubview:labelGPA];
+        //排名
+        UILabel *labelRank=[[UILabel alloc]initWithFrame:CGRectMake(SYReal(336),SYReal(317+i*26),SYReal(71),SYReal(22))];
+        labelRank.font=[UIFont systemFontOfSize: 13.0];
+        labelRank.text=scoreRank.rank;
+        labelRank.textColor=[UIColor whiteColor];
+        labelRank.textAlignment = NSTextAlignmentRight;
+        [self.view addSubview:labelRank];
         
-        
+        NSUserDefaults *defalut=[NSUserDefaults standardUserDefaults];
+        [defalut setInteger:i+1 forKey:@"sourceGrade"];
+        [defalut synchronize];
     }
-    else if ([score getZxf:@"2015-2016第1学期"] != 0.0){ //大二
-        _P11.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:0.95];
-        _D11.text=xf_2015_1;
-        _D12.text=xf_2015_2;
-        _D21.text=xf_2016_1;
-        _D22.text=xf_2016_2;
-        _P11.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2015-2016第1学期"]/5.0];
-        _P12.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2015-2016第2学期"]/5.0];
-        _P21.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2017第1学期"]/5.0];
-        _P22.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2016第2学期"]/5.0];
-        _D11.hidden=false, _T11.hidden=false,_P11.hidden=false;
-        _D12.hidden=false, _T12.hidden=false,_P12.hidden=false;
-        _D21.hidden=false, _T21.hidden=false,_P21.hidden=false;
-        _D22.hidden=false, _T22.hidden=false,_P22.hidden=false;
-        grade=22;
-        if ([score getZxf:@"2016-2017第2学期"]==0.0) //上学期
-            _D22.hidden=true, _T22.hidden=true,_P22.hidden=false,grade=21;
-    }
-    else{  //大一
-        _D11.text=xf_2016_1;
-        _D11.text=xf_2016_2;
-        _P11.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2017第1学期"]/5.0];
-        _P12.image=[self scaleImage:[UIImage imageNamed:@"Score_jd"] toScale:[score getZxf:@"2016-2016第2学期"]/5.0];
-        _D11.hidden=false, _T11.hidden=false,_P11.hidden=false;
-        _D12.hidden=false, _T12.hidden=false,_P12.hidden=false;
-        grade=12;
-        if ([score getZxf:@"2016-2017第2学期"]==0.0) //下学期
-            _D12.hidden=true,_T12.hidden=true,_P12.hidden=false,grade=11;
-        
-        
-    }
-    [defalut setInteger:grade forKey:@"sourceGrade"];
-    [defalut synchronize];
 }
 -(void)setScale{
     Score *score=[[Score alloc]init];

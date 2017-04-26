@@ -130,17 +130,13 @@
     static NSString *Identifier      = @"Identifier";
     UITableViewCell *cell            = [tableView dequeueReusableCellWithIdentifier:Identifier];
     LeftUserTableViewCell *userCell=[LeftUserTableViewCell tableViewCell];
-    if (cell == nil) {
+    if (! cell) {
         cell                = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
     }
     
     if (indexPath.row == 0) { //个人界面
         [self.tableview reloadData];
-        UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        CourseViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"User"];
-        AppDelegate *tempAppDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:NO];
-        
+        [Config pushViewController:@"User"];
     }
     
     if (indexPath.row == 2) {  //分享
@@ -156,28 +152,20 @@
 
         }]];
         [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSString *appDomain       = [[NSBundle mainBundle] bundleIdentifier];
-            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];  //删除本地数据缓存
+            [Config removeUserDefaults];
+            [Config removeUmeng];
             AppDelegate *tempAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            LoginViewController *firstlogin                = [[LoginViewController alloc] init];
+            LoginViewController *firstlogin                = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
             [tempAppDelegate.mainNavigationController pushViewController:firstlogin animated:YES];
-            [UMessage removeAllTags:^(id responseObject, NSInteger remain, NSError *error) {//删除友盟标签缓存
-            }];
         }]];
         [self presentViewController:alert animated:true completion:nil];
     
     }
     if (indexPath.row == 4) {  //关于
-        UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        CourseViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"About"];
-        AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:YES];
+        [Config pushViewController:@"About"];
     }
     if (indexPath.row == 5) {  //反馈
-        UIStoryboard *mainStoryBoard              = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        CourseViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Feedback"];
-        AppDelegate *tempAppDelegate              = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [tempAppDelegate.mainNavigationController pushViewController:secondViewController animated:YES];
+        [Config pushViewController:@"Feedback"];
     }
     
 }
