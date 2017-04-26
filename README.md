@@ -47,19 +47,6 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 - 请求的数据可以在json文件夹中查看
 **如果要进行二次开发，可以直接把请求的地址改成自己后端的地址，然后把接受的数据改一下即可.**
 
-# 项目使用的开源项目
-- [LeftSlide - 主界面框架](https://github.com/chennyhuang/LeftSlide)
-- [MBProgressHUD - 等待框动画](https://github.com/jdg/MBProgressHUD)
-- [GWPCourseListView - 课程表界面](https://github.com/GanWenpeng/GWPCourseListView)
-- [LGPlusButtonsView - 按钮控件](https://github.com/Friend-LGA/LGPlusButtonsView)
-- [UUCharView - 成绩曲线图标](https://github.com/ZhipingYang/UUChartView)
-- [SKSTableView - 成绩列表](https://github.com/sakkaras/SKSTableView)
-- [TZImagePickerController - 照片选择器](https://github.com/banchichen/TZImagePickerController)
-- [SDWebImage - 异步多图加载](https://github.com/rs/SDWebImage)
-- [MJRefresh - 上拉下拉刷新](https://github.com/CoderMJLee/MJRefresh)
-- [YYModel - Json转Model](https://github.com/ibireme/YYModel)
-- [AFNetworking - 请求异步加载](https://github.com/AFNetworking/AFNetworking)
-
 # 界面
 ![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![主界面](http://img.wxz.name/IMG_1364.png?imageView2/2/w/252/h/450/interlace/0/q/41)
@@ -76,6 +63,19 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 ![](http://img.wxz.name/github/20170426151539_zK1rOn_IMG_0906.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![](http://img.wxz.name/github/20170426151539_3MUsyQ_IMG_0907.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![](http://img.wxz.name/github/20170426151539_5ro9oG_IMG_0903.png?imageView2/2/w/252/h/450/interlace/0/q/41)
+
+# 项目使用的开源项目
+- [LeftSlide - 主界面框架](https://github.com/chennyhuang/LeftSlide)
+- [MBProgressHUD - 等待框动画](https://github.com/jdg/MBProgressHUD)
+- [GWPCourseListView - 课程表界面](https://github.com/GanWenpeng/GWPCourseListView)
+- [LGPlusButtonsView - 按钮控件](https://github.com/Friend-LGA/LGPlusButtonsView)
+- [UUCharView - 成绩曲线图标](https://github.com/ZhipingYang/UUChartView)
+- [SKSTableView - 成绩列表](https://github.com/sakkaras/SKSTableView)
+- [TZImagePickerController - 照片选择器](https://github.com/banchichen/TZImagePickerController)
+- [SDWebImage - 异步多图加载](https://github.com/rs/SDWebImage)
+- [MJRefresh - 上拉下拉刷新](https://github.com/CoderMJLee/MJRefresh)
+- [YYModel - Json转Model](https://github.com/ibireme/YYModel)
+- [AFNetworking - 请求异步加载](https://github.com/AFNetworking/AFNetworking)
 
 # License
 [Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
