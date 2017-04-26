@@ -1,5 +1,5 @@
 # 湖南工业大学校园助手iOS端
-![76@2x](https://o90qqsid7.qnssl.com/76@2x-1.png)
+![76@2x](http://img.wxz.name/76@2x-1.png)
 # 项目总体概况
 - 截止到17年3月18日，iOS端用户量已经达到3000人，另外Android端用户量已过8000,主要使用对象为湖南工业大学学生，覆盖全校60%以上人群。
 - iOS端开发语言采用Objective-C，开发软件为Xcode，适配iOS8以上系统。
@@ -125,13 +125,11 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 - [LGPlusButtonsView - 按钮控件](https://github.com/Friend-LGA/LGPlusButtonsView)
 - [UUCharView - 成绩曲线图标](https://github.com/ZhipingYang/UUChartView)
 - [SKSTableView - 成绩列表](https://github.com/sakkaras/SKSTableView)
-- [TZImagePickerController - 照片选择器]
-- [SDWebImage - 异步多图加载]
-- [MJRefresh - 上拉下拉刷新]
-- [YYModel - Json转Model]
-- [AFNetworking - 请求异步加载]
-- [UMengUShare - 友盟分享]
-- [ASIHTTPRequest - 照片同步上传]
+- [TZImagePickerController - 照片选择器](https://github.com/banchichen/TZImagePickerController)
+- [SDWebImage - 异步多图加载](https://github.com/rs/SDWebImage)
+- [MJRefresh - 上拉下拉刷新](https://github.com/CoderMJLee/MJRefresh)
+- [YYModel - Json转Model](https://github.com/ibireme/YYModel)
+- [AFNetworking - 请求异步加载](https://github.com/AFNetworking/AFNetworking)
 
 # 最后
 这是本人刚进大二,在湖南工业大学实验室写的一款App，目的主要是为湖南工业大学的学生提供一些便利,同时也是湖南省省级项目,App中有很多不足的地方,代码的可读性也不是很好,甚至于最开始的版本，网络请求都是同步请求，没有加载框，很容易卡死。但是不管如何，我都在完善。
@@ -146,16 +144,18 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 [Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 # 界面
-![登录界面](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2018.56.58.png?imageView2/2/w/200/h/300/interlace/0/q/41)
-![主界面](https://o90qqsid7.qnssl.com/IMG_1364.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![曲线成绩](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![所有成绩查询](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2-%E9%80%89%E6%8B%A9%E5%AD%A6%E6%9C%9F.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![课程表](https://o90qqsid7.qnssl.com/IMG_1365.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![IMG_1366](https://o90qqsid7.qnssl.com/IMG_1366.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![IMG_1367](https://o90qqsid7.qnssl.com/IMG_1367.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![IMG_1371](https://o90qqsid7.qnssl.com/IMG_1371.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![IMG_1372](https://o90qqsid7.qnssl.com/IMG_1372.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![图书馆](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/200/h/400/interlace/0/q/41)
-![网上作业](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/200/h/300/interlace/0/q/41)
+![主界面](http://img.wxz.name/IMG_1364.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![成绩](http://img.wxz.name/github/20170426151539_trlelR_IMG_0900.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![所有成绩查询](http://img.wxz.name/github/20170426151539_oucdIa_IMG_0902.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![课程表](http://img.wxz.name/github/20170426151539_FSbFF5_IMG_0898.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_Z47HZw_IMG_0904.png)
+![图书馆](http://img.wxz.name/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![网上作业](http://img.wxz.name/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_zK1rOn_IMG_0906.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_3MUsyQ_IMG_0907.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![](http://img.wxz.name/github/20170426151539_5ro9oG_IMG_0903.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+
+
 
 
