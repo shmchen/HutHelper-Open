@@ -146,16 +146,16 @@ git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
 [Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 # 界面
-![登录界面](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2018.56.58.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![主界面](https://o90qqsid7.qnssl.com/IMG_1364.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![曲线成绩](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![所有成绩查询](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2-%E9%80%89%E6%8B%A9%E5%AD%A6%E6%9C%9F.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![课程表](https://o90qqsid7.qnssl.com/IMG_1365.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![IMG_1366](https://o90qqsid7.qnssl.com/IMG_1366.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![IMG_1367](https://o90qqsid7.qnssl.com/IMG_1367.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![IMG_1371](https://o90qqsid7.qnssl.com/IMG_1371.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![IMG_1372](https://o90qqsid7.qnssl.com/IMG_1372.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![图书馆](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/400/h/800/interlace/0/q/41)
-![网上作业](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/400/h/800/interlace/0/q/41)
+![登录界面](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2018.56.58.png?imageView2/2/w/200/h/300/interlace/0/q/41)
+![主界面](https://o90qqsid7.qnssl.com/IMG_1364.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![曲线成绩](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![所有成绩查询](https://o90qqsid7.qnssl.com/%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2-%E9%80%89%E6%8B%A9%E5%AD%A6%E6%9C%9F.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![课程表](https://o90qqsid7.qnssl.com/IMG_1365.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![IMG_1366](https://o90qqsid7.qnssl.com/IMG_1366.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![IMG_1367](https://o90qqsid7.qnssl.com/IMG_1367.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![IMG_1371](https://o90qqsid7.qnssl.com/IMG_1371.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![IMG_1372](https://o90qqsid7.qnssl.com/IMG_1372.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![图书馆](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.19.png?imageView2/2/w/200/h/400/interlace/0/q/41)
+![网上作业](https://o90qqsid7.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-06%2019.41.41.png?imageView2/2/w/200/h/400/interlace/0/q/41)
 
 
