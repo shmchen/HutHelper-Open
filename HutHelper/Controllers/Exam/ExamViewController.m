@@ -14,31 +14,14 @@
 #import "MBProgressHUD+MJ.h"
 #import "ExamCell.h"
 #import "JSONKit.h"
-#include <stdio.h>
-#include <time.h>
-#import<CommonCrypto/CommonDigest.h>
 #import "MJRefresh.h"
+#import "APIRequest.h"
 @interface ExamViewController ()
 
 @property (nonatomic, retain) NSMutableArray *array;
 @property (nonatomic, retain) NSMutableArray *arraycx;
 @end
-@implementation NSString (MMD5)
-- (id)MMD5
-{
-    const char *cStr           = [self UTF8String];
-    unsigned char digest[16];
-    unsigned int x=(int)strlen(cStr) ;
-    CC_MD5( cStr, x, digest );
-    // This is the md5 call
-    NSMutableString *output    = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    
-    for(int i                  = 0; i < CC_MD5_DIGEST_LENGTH; i++)
-        [output appendFormat:@"%02x", digest[i]];
-    
-    return  output;
-}
-@end
+
 @implementation ExamViewController
 
 int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
@@ -64,7 +47,7 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"考试查询";
+    self.navigationItem.title = @"考试计划";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reloadexam)];
     //获得考试信息
@@ -73,7 +56,6 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
 }
 #pragma mark - "设置表格代理"
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return _array.count+_arraycx.count;
 }
 
@@ -104,7 +86,6 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
     NSString *EndTime           ;
     NSString *Exam_Time;//拆分后的时间
     NSString *Week_Num;
-    int i;
     /**考试数据*/
     if (indexPath.section<_array.count)
         dict1=_array[indexPath.section];
@@ -124,13 +105,16 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
     if ([EndTime isEqual:[NSNull null]])   EndTime = @"-";
     if ([isset isEqual:[NSNull null]])        isset   = @"-";
     /**添加重修标志*/
-    if (indexPath.section>=_array.count&&indexPath.section<_arraycx.count+_array.count)
-        CourseName=[@"【重修】" stringByAppendingString:CourseName];
+    if (indexPath.section>=_array.count&&indexPath.section<_arraycx.count+_array.count){
+        if (![CourseName isEqualToString:@"尔雅网络课程"]) {
+            CourseName=[@"【重修】" stringByAppendingString:CourseName];
+        }
+    }
     /**计算考试时间*/
-    int Year,Mouth,Day,Hour,Minutes,End_Hour,End_Minutes=0;
+    int Year=0,Mouth=0,Day=0,Hour=0,Minutes = 0,End_Hour=0,End_Minutes=0;
     if (![EndTime isEqual:@"-"]) {
-        End_Hour=[[Starttime substringWithRange:NSMakeRange(11,2)] intValue];
-        End_Minutes=[[Starttime substringWithRange:NSMakeRange(14,2)] intValue];
+        End_Hour=[[EndTime substringWithRange:NSMakeRange(11,2)] intValue];
+        End_Minutes=[[EndTime substringWithRange:NSMakeRange(14,2)] intValue];
     }
     if (![Starttime isEqual:@"-"]) {
         Year=[[Starttime substringWithRange:NSMakeRange(0,4)] intValue];
@@ -140,20 +124,23 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
         Minutes=[[Starttime substringWithRange:NSMakeRange(14,2)] intValue];
     }
     if (![EndTime isEqual:@"-"]&&![Starttime isEqual:@"-"]) {
-        NSString *String_Minutes,*String_End_Minutes;
-        if (Minutes==0)
+        NSString *String_Minutes;
+        NSString *String_End_Minutes;
+        if (Minutes==0){
             String_Minutes=@"00";
-        else
+        }else{
             String_Minutes=[NSString stringWithFormat:@"%d",Minutes];
-        if (End_Minutes==0)
+        }
+        if (End_Minutes==0){
             String_End_Minutes=@"00";
-        else
+        }else{
             String_End_Minutes=[NSString stringWithFormat:@"%d",End_Minutes];
-        
+        }
         Exam_Time=[NSString stringWithFormat:@"%@周/%d.%d.%d/%d:%@-%d:%@",Week_Num,Year,Mouth,Day,Hour,String_Minutes,End_Hour,String_End_Minutes];
     }
-    else
+    else{
         Exam_Time=@"-";
+    }
     NSLog(@"%@",Exam_Time);
     /**计算倒计时*/
     NSDate *now                               = [NSDate date];
@@ -200,24 +187,13 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
     NSData *jsonData=[defaults objectForKey:@"Exam"];
     NSDictionary *User_All     = [jsonData objectFromJSONData];//数据 -> 字典
     NSDictionary *Class_Data=[User_All objectForKey:@"res"];
+    [Config saveWidgetExam:Class_Data];
     _array  = [Class_Data objectForKey:@"exam"];
     _arraycx = [Class_Data objectForKey:@"cxexam"];
 }
 -(void)reloadexam{
-    /**拼接地址*/
-    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    NSString *ss=[Config.getStudentKH stringByAppendingString:@"apiforapp!"];
-    ss=[ss MMD5];
-    NSString *Url_String=[NSString stringWithFormat:API_EXAM,Config.getStudentKH,ss];
-    NSLog(@"考试地址:%@",Url_String);
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    /**设置4秒超时*/
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 4.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    /**请求*/
-    [manager GET:Url_String parameters:nil progress:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [Config setNoSharedCache];
+    [APIRequest GET:Config.getApiExam parameters:nil success:^(id responseObject) {
              NSDictionary *Exam_All = [NSDictionary dictionaryWithDictionary:responseObject];
              NSData *Exam_data =    [NSJSONSerialization dataWithJSONObject:Exam_All options:NSJSONWritingPrettyPrinted error:nil];
              NSString *status=[Exam_All objectForKey:@"status"];
@@ -237,7 +213,7 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
                  
                  [MBProgressHUD showError:@"超时,显示本地数据"];
              }
-         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         } failure:^(NSError *error) {
              [MBProgressHUD showError:@"网络错误"];
              [self.tableView.mj_header endRefreshing];
          }];

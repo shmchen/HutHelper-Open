@@ -12,6 +12,7 @@
 #import "VedioModel.h"
 #import "MJRefresh.h"
 #import "APIRequest.h"
+#import "Config+Api.h"
 @interface VedioTableViewController ()
 
 @end
@@ -31,6 +32,7 @@
     NSDictionary *Dic=[Config getVedio];
     [self loadData:Dic[@"links"]];
     [Config saveVedio480p:Dic[@"480P"]];
+    [Config saveVedio720p:Dic[@"720P"]];
     [Config saveVedio1080p:Dic[@"1080P"]];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reload)];
@@ -103,7 +105,7 @@
 }
 -(void)reload{
     [Config setNoSharedCache];
-    [APIRequest GET:API_VEDIO_SHOW parameters:nil success:^(id responseObject) {
+    [APIRequest GET:Config.getApiVedioShow parameters:nil success:^(id responseObject) {
         [Config saveVedio:responseObject];
         [self loadData:responseObject[@"links"]];
         [self.tableView reloadData];

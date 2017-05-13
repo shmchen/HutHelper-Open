@@ -32,7 +32,7 @@
 }
 
 -(void)SetURL{
-    Url_String=@"http://218.75.197.121:8889/opac/m/index";
+    Url_String=@"http://app.wxz.name/api/null";
 }
 
 -(void)SetTitle{
