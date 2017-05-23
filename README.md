@@ -1,9 +1,11 @@
 # 工大助手
+![](https://img.shields.io/badge/license-apache-blue.svg)
+![](https://img.shields.io/badge/lanuage-Objective--C-brightgreen.svg)
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
-![76@2x](http://img.wxz.name/76@2x-1.png)
 
 # 项目概况
-- 工大助手是湖南工业大学计算机学院实验室为工大学子开发的一款校园App，目前iOS端用户量3000人左右，Android端用户9000人左右。Web端日浏览量在3W左右。
+- 工大助手是湖南工业大学计算机学院实验室为工大学子开发的一款校园App。
+- 目前iOS端用户量4000人左右，Android端用户9000人左右。Web端日浏览量在3W左右。
 - 本仓库为工大助手iOS端，除接口文件不同，其余与线上版本一致。
 - iOS端下载: [AppStore](https://itunes.apple.com/cn/app/gong-da-zhu-shou-hu-nan-gong/id1164848835)
 - Android端下载: [工大助手](http://hugongda.top:8888/res/app/)
