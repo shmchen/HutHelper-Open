@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/lanuage-Objective--C-brightgreen.svg)
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
-# 项目概况
+# Description
 - 工大助手是湖南工业大学计算机学院实验室为工大学子开发的一款校园App。
 - 目前iOS端用户量4000人左右，Android端用户9000人左右。Web端日浏览量在3W左右。
 - 本仓库为工大助手iOS端，除接口文件不同，其余与线上版本一致。
@@ -13,7 +13,7 @@
 - Web端:[工大导航](http://hugongda.top:8888/)
 - 开发者博客:[Nine's Blog](http://www.wxz.name)
 
-# 项目框架
+# Frame
 ```
 .
 	├── HutHelper
@@ -39,6 +39,7 @@
 	└── Pods：项目使用了[CocoaPods](http://code4app.com/article/cocoapods-install-usage)这个类库管理工具
 	└── JSON:接口数据
 ```
+
 ## Features
 - [x] 成绩查询
 - [x] 考试查询
@@ -52,12 +53,9 @@
 - [x] 图书馆
 - [x] 校历
 - [ ] 老乡查找
-- [ ] 校友寻找
 - [ ] 即时聊天
-- [ ] 校友寻找
 - [ ] 校园活动
-
-# 界面
+# Screenshot
 ![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![主界面](http://img.wxz.name/IMG_1364.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![](http://img.wxz.name/github/20170426151539_Z47HZw_IMG_0904.png?imageView2/2/w/252/h/450/interlace/0/q/41)
@@ -73,20 +71,6 @@
 ![](http://img.wxz.name/github/20170426151539_zK1rOn_IMG_0906.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![](http://img.wxz.name/github/20170426151539_3MUsyQ_IMG_0907.png?imageView2/2/w/252/h/450/interlace/0/q/41)
 ![](http://img.wxz.name/github/20170426151539_5ro9oG_IMG_0903.png?imageView2/2/w/252/h/450/interlace/0/q/41)
-
-# 项目使用的开源项目
-- [LeftSlide - 主界面框架](https://github.com/chennyhuang/LeftSlide)
-- [MBProgressHUD - 等待框动画](https://github.com/jdg/MBProgressHUD)
-- [GWPCourseListView - 课程表界面](https://github.com/GanWenpeng/GWPCourseListView)
-- [LGPlusButtonsView - 按钮控件](https://github.com/Friend-LGA/LGPlusButtonsView)
-- [UUCharView - 成绩曲线图标](https://github.com/ZhipingYang/UUChartView)
-- [SKSTableView - 成绩列表](https://github.com/sakkaras/SKSTableView)
-- [TZImagePickerController - 照片选择器](https://github.com/banchichen/TZImagePickerController)
-- [SDWebImage - 异步多图加载](https://github.com/rs/SDWebImage)
-- [MJRefresh - 上拉下拉刷新](https://github.com/CoderMJLee/MJRefresh)
-- [YYModel - Json转Model](https://github.com/ibireme/YYModel)
-- [AFNetworking - 请求异步加载](https://github.com/AFNetworking/AFNetworking)
-
 # License
 [Apache Licene 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
