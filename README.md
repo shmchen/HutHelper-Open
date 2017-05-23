@@ -1,5 +1,7 @@
-# 校园助手iOS端
+# 工大助手
+[![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 ![76@2x](http://img.wxz.name/76@2x-1.png)
+
 # 项目概况
 - 工大助手是湖南工业大学计算机学院实验室为工大学子开发的一款校园App，目前iOS端用户量3000人左右，Android端用户9000人左右。Web端日浏览量在3W左右。
 - 本仓库为工大助手iOS端，除接口文件不同，其余与线上版本一致。
@@ -35,17 +37,23 @@
 	└── Pods：项目使用了[CocoaPods](http://code4app.com/article/cocoapods-install-usage)这个类库管理工具
 	└── JSON:接口数据
 ```
-## Clone
-因文件比较大，建议挂代理Clone，或者只Clone最新版本。
-```
-git clone --depth=1 https://github.com/isnine/HutHelper-Open.git
-```
-## 注意事项
-- 考虑到在校用户信息的安全性,**App的接口地址全部换成了镜像接口,与线上版本不同**
-- 同时因为镜像接口的数据是固定的,所以测试时，**登录界面，无论输入什么，点登录就可以**
-- 课程数据,考试数据,用户数据,课表数据,说说数据,二手数据这些也都是固定的
-- 请求的数据可以在json文件夹中查看
-**如果要进行二次开发，可以直接把请求的地址改成自己后端的地址，然后把接受的数据改一下即可.**
+## Features
+- [x] 成绩查询
+- [x] 考试查询
+- [x] 电费查询
+- [x] 网上作业
+- [x] 二手市场
+- [x] 校园说说
+- [x] 实验课表
+- [x] 失物招领
+- [x] 视频专栏
+- [x] 图书馆
+- [x] 校历
+- [ ] 老乡查找
+- [ ] 校友寻找
+- [ ] 即时聊天
+- [ ] 校友寻找
+- [ ] 校园活动
 
 # 界面
 ![登录界面](http://img.wxz.name/github/20170426151539_vDkWXy_IMG_0909.png?imageView2/2/w/252/h/450/interlace/0/q/41)
