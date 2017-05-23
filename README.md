@@ -1,7 +1,10 @@
-# HutHelper
-![](https://img.shields.io/badge/license-apache-green.svg)
-![](https://img.shields.io/badge/lanuage-Objective--C-brightgreen.svg)
+# HutHelper - 工大助手
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
+![](https://img.shields.io/badge/lanuage-Objective--C-brightgreen.svg)
+![](https://img.shields.io/badge/pod-1.1.1-red.svg)
+![](https://img.shields.io/badge/license-apache-green.svg)
+
+<iframe src="https://ghbtns.com/github-btn.html?user=isnine&repo=huthelper-open&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 
 # Description
 - 工大助手是湖南工业大学计算机学院实验室为工大学子开发的一款校园App。
