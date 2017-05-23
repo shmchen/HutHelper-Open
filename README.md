@@ -1,5 +1,5 @@
 # 工大助手
-![](https://img.shields.io/badge/license-apache-blue.svg)
+![](https://img.shields.io/badge/license-apache-green.svg)
 ![](https://img.shields.io/badge/lanuage-Objective--C-brightgreen.svg)
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
