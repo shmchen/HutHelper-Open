@@ -67,8 +67,8 @@
     return @"http://app.wxz.name/api/null";
 }
 #pragma mark - 失物招领
-+(NSString*)getApiLost{
-    return [NSString stringWithFormat:@"%@/api/v1/loses/posts",Config.apiIndex];
++(NSString*)getApiLost:(int)num{
+    return [NSString stringWithFormat:@"%@/api/v1/loses/posts/%d",Config.apiIndex,num];
 }
 +(NSString*)getApiLostUser{
     return @"http://app.wxz.name/api/null";
@@ -80,8 +80,8 @@
     return @"http://app.wxz.name/api/null";
 }
 #pragma mark - 校园说说
-+(NSString*)getApiMoments{
-    return [NSString stringWithFormat:@"%@/api/v1/moments/posts",Config.apiIndex];
++(NSString*)getApiMoments:(int)num{
+    return [NSString stringWithFormat:@"%@/api/v1/moments/posts/%d",Config.apiIndex,num];
 }
 +(NSString*)getApiMomentsUser{
     return @"http://app.wxz.name/api/null";
@@ -101,8 +101,8 @@
 +(NSString*)getApiMomentsCreateComment{
     return @"http://app.wxz.name/api/null";
 }
-+(NSString*)getApiMomentsLikesCreate{
-    return @"http://app.wxz.name/api/null";
++(NSString*)getApiMomentsLikesCreate:(NSString*)momentsID{
+    return [NSString stringWithFormat:@"%@/api/v1/moments/like/%@/%@/%@",Config.apiIndex,Config.getStudentKH,Config.getRememberCodeApp,momentsID];
 }
 +(NSString*)getApiMomentsLikesShow{
     return @"http://app.wxz.name/api/null";

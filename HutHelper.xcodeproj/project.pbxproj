@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0056121EC97CB70047E8F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0056111EC97CB70047E8F2 /* Assets.xcassets */; };
 		3A06D9B51E8CEDE400066DD1 /* ExamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D9B31E8CEDE400066DD1 /* ExamCell.m */; };
 		3A06D9B61E8CEDE400066DD1 /* ExamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A06D9B41E8CEDE400066DD1 /* ExamCell.xib */; };
 		3A1CEC331E93D71A002D8583 /* VedioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CEC321E93D71A002D8583 /* VedioModel.m */; };
@@ -68,6 +69,7 @@
 		3A532CD21E910C13003CD5A8 /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A532CC21E910C13003CD5A8 /* ZFPlayerModel.m */; };
 		3A532CD31E910C13003CD5A8 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A532CC41E910C13003CD5A8 /* ZFPlayerView.m */; };
 		3A532CDD1E9121C5003CD5A8 /* VedioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A532CDC1E9121C5003CD5A8 /* VedioTableViewController.m */; };
+		3A6397EB1EC9C12300EE4BEA /* HutHelperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6397EA1EC9C12300EE4BEA /* HutHelperUITests.m */; };
 		3A796C1F1E534C1B00794043 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A796BA41E534C1B00794043 /* CourseViewController.m */; };
 		3A796C251E534C1B00794043 /* FeedbackResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A796BB21E534C1B00794043 /* FeedbackResultViewController.m */; };
 		3A796C261E534C1B00794043 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A796BB41E534C1B00794043 /* FeedbackViewController.m */; };
@@ -83,7 +85,6 @@
 		3A796C541E534C1B00794043 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A796C111E534C1B00794043 /* UserViewController.m */; };
 		3A796C6C1E534DAE00794043 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A796C681E534DAE00794043 /* Launch Screen.storyboard */; };
 		3A796C6D1E534DAE00794043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A796C691E534DAE00794043 /* Main.storyboard */; };
-		3A85678B1DA908AA00EBD44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A85678A1DA908AA00EBD44A /* Assets.xcassets */; };
 		3A8BACF91DDDBD71001C78B8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BACF81DDDBD71001C78B8 /* libsqlite3.tbd */; };
 		3A8BACFD1DDDBDDB001C78B8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BACFC1DDDBDDB001C78B8 /* ImageIO.framework */; };
 		3A96DEE51E94B384006C2CC8 /* VedioPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96DEE41E94B384006C2CC8 /* VedioPlayViewController.m */; };
@@ -195,6 +196,13 @@
 			remoteGlobalIDString = 3A2FF4E71E50179700B07EB6;
 			remoteInfo = Extend;
 		};
+		3A6397ED1EC9C12300EE4BEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A8567731DA908AA00EBD44A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A85677A1DA908AA00EBD44A;
+			remoteInfo = HutHelper;
+		};
 		3AFA4F921EC0675700CB7DA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A8567731DA908AA00EBD44A /* Project object */;
@@ -221,6 +229,7 @@
 
 /* Begin PBXFileReference section */
 		0BEA75F30B57DEF614969189 /* Pods-HutHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HutHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HutHelper/Pods-HutHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		3A0056111EC97CB70047E8F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HutHelper/Assets.xcassets; sourceTree = "<group>"; };
 		3A06D9B21E8CEDE400066DD1 /* ExamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamCell.h; sourceTree = "<group>"; };
 		3A06D9B31E8CEDE400066DD1 /* ExamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamCell.m; sourceTree = "<group>"; };
 		3A06D9B41E8CEDE400066DD1 /* ExamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExamCell.xib; sourceTree = "<group>"; };
@@ -329,6 +338,9 @@
 		3A532CC41E910C13003CD5A8 /* ZFPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
 		3A532CDB1E9121C5003CD5A8 /* VedioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VedioTableViewController.h; sourceTree = "<group>"; };
 		3A532CDC1E9121C5003CD5A8 /* VedioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VedioTableViewController.m; sourceTree = "<group>"; };
+		3A6397E81EC9C12300EE4BEA /* HutHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HutHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A6397EA1EC9C12300EE4BEA /* HutHelperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HutHelperUITests.m; sourceTree = "<group>"; };
+		3A6397EC1EC9C12300EE4BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A6FF7C41DB3151E004CFBE8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3A6FF7C61DB3152C004CFBE8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3A6FF7C81DB31544004CFBE8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -362,7 +374,6 @@
 		3A796C691E534DAE00794043 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3A7D3CA91DB0A6CB00355E7A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		3A85677B1DA908AA00EBD44A /* HutHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HutHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A85678A1DA908AA00EBD44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A8BACF61DDDBD5D001C78B8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A8BACF81DDDBD71001C78B8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3A8BACFA1DDDBD81001C78B8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -555,6 +566,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2FF4EA1E50179700B07EB6 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A6397E51EC9C12300EE4BEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +841,15 @@
 			path = Vedio;
 			sourceTree = "<group>";
 		};
+		3A6397E91EC9C12300EE4BEA /* HutHelperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3A6397EA1EC9C12300EE4BEA /* HutHelperUITests.m */,
+				3A6397EC1EC9C12300EE4BEA /* Info.plist */,
+			);
+			path = HutHelperUITests;
+			sourceTree = "<group>";
+		};
 		3A796B9E1E534C1B00794043 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,8 +1002,10 @@
 			isa = PBXGroup;
 			children = (
 				3A85677D1DA908AA00EBD44A /* HutHelper */,
+				3A0056111EC97CB70047E8F2 /* Assets.xcassets */,
 				3A2FF4EB1E50179700B07EB6 /* Extend */,
 				3AFA4F8A1EC0675700CB7DA2 /* ExamTime */,
+				3A6397E91EC9C12300EE4BEA /* HutHelperUITests */,
 				3A85677C1DA908AA00EBD44A /* Products */,
 				3A7D3CA81DB0A6CB00355E7A /* Frameworks */,
 				12486D9D0B1F337F5979987B /* Pods */,
@@ -989,6 +1018,7 @@
 				3A85677B1DA908AA00EBD44A /* HutHelper.app */,
 				3A2FF4E81E50179700B07EB6 /* Extend.appex */,
 				3AFA4F881EC0675700CB7DA2 /* ExamTime.appex */,
+				3A6397E81EC9C12300EE4BEA /* HutHelperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1004,7 +1034,6 @@
 				3A98CBCB1E7CFA9C00CABD0D /* Vendor */,
 				3A98CB621E7CF82F00CABD0D /* Utils */,
 				3AFA4F701EC04C0E00CB7DA2 /* Supporting Files */,
-				3A85678A1DA908AA00EBD44A /* Assets.xcassets */,
 			);
 			path = HutHelper;
 			sourceTree = "<group>";
@@ -1493,6 +1522,24 @@
 			productReference = 3A2FF4E81E50179700B07EB6 /* Extend.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		3A6397E71EC9C12300EE4BEA /* HutHelperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A6397F11EC9C12300EE4BEA /* Build configuration list for PBXNativeTarget "HutHelperUITests" */;
+			buildPhases = (
+				3A6397E41EC9C12300EE4BEA /* Sources */,
+				3A6397E51EC9C12300EE4BEA /* Frameworks */,
+				3A6397E61EC9C12300EE4BEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A6397EE1EC9C12300EE4BEA /* PBXTargetDependency */,
+			);
+			name = HutHelperUITests;
+			productName = HutHelperUITests;
+			productReference = 3A6397E81EC9C12300EE4BEA /* HutHelperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3A85677A1DA908AA00EBD44A /* HutHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A8567921DA908AA00EBD44A /* Build configuration list for PBXNativeTarget "HutHelper" */;
@@ -1555,6 +1602,12 @@
 							};
 						};
 					};
+					3A6397E71EC9C12300EE4BEA = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = JW2LR94V6G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3A85677A1DA908AA00EBD44A;
+					};
 					3A85677A1DA908AA00EBD44A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = JW2LR94V6G;
@@ -1598,6 +1651,7 @@
 				3A85677A1DA908AA00EBD44A /* HutHelper */,
 				3A2FF4E71E50179700B07EB6 /* Extend */,
 				3AFA4F871EC0675700CB7DA2 /* ExamTime */,
+				3A6397E71EC9C12300EE4BEA /* HutHelperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1609,6 +1663,13 @@
 			files = (
 				3A2FF4FC1E50202000B07EB6 /* Media.xcassets in Resources */,
 				3A4D30251E8D305300901E3B /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A6397E61EC9C12300EE4BEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1637,11 +1698,11 @@
 				3A4D2FCA1E8D226000901E3B /* LostShowPhotoTableViewCell.xib in Resources */,
 				3A4D30141E8D297200901E3B /* LeftItemTableViewCell.xib in Resources */,
 				3A98CC021E7CFA9C00CABD0D /* iVersion.bundle in Resources */,
-				3A85678B1DA908AA00EBD44A /* Assets.xcassets in Resources */,
 				3A4D2FBE1E8D20E900901E3B /* HandTableViewController.xib in Resources */,
 				3A98CB731E7CF82F00CABD0D /* MBProgressHUD.bundle in Resources */,
 				3ACD1C481EB75371001EA0D4 /* ChatBottomContentView.xib in Resources */,
 				3A4D2FF41E8D24C100901E3B /* NoticeTableViewCell.xib in Resources */,
+				3A0056121EC97CB70047E8F2 /* Assets.xcassets in Resources */,
 				3A06D9B61E8CEDE400066DD1 /* ExamCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1712,6 +1773,14 @@
 			files = (
 				3A4D30231E8D305300901E3B /* TodayViewController.m in Sources */,
 				3A4D30241E8D305300901E3B /* ExtendModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A6397E41EC9C12300EE4BEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A6397EB1EC9C12300EE4BEA /* HutHelperUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,6 +1934,11 @@
 			target = 3A2FF4E71E50179700B07EB6 /* Extend */;
 			targetProxy = 3A2FF4F31E50179700B07EB6 /* PBXContainerItemProxy */;
 		};
+		3A6397EE1EC9C12300EE4BEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A85677A1DA908AA00EBD44A /* HutHelper */;
+			targetProxy = 3A6397ED1EC9C12300EE4BEA /* PBXContainerItemProxy */;
+		};
 		3AFA4F931EC0675700CB7DA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3AFA4F871EC0675700CB7DA2 /* ExamTime */;
@@ -1897,6 +1971,7 @@
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_ENTITLEMENTS = Extend/Extend.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JW2LR94V6G;
 				GCC_PREFIX_HEADER = "HutHelper/Supporting Files/HutHelper-Prefix.pch";
 				INFOPLIST_FILE = Extend/Info.plist;
@@ -1904,6 +1979,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = name.wxz.HutHelper.Extend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1913,6 +1990,7 @@
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_ENTITLEMENTS = Extend/Extend.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JW2LR94V6G;
 				GCC_PREFIX_HEADER = "HutHelper/Supporting Files/HutHelper-Prefix.pch";
 				INFOPLIST_FILE = Extend/Info.plist;
@@ -1920,7 +1998,37 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = name.wxz.HutHelper.Extend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3A6397EF1EC9C12300EE4BEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = JW2LR94V6G;
+				INFOPLIST_FILE = HutHelperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = name.wxz.HutHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HutHelper;
+			};
+			name = Debug;
+		};
+		3A6397F01EC9C12300EE4BEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = JW2LR94V6G;
+				INFOPLIST_FILE = HutHelperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = name.wxz.HutHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HutHelper;
 			};
 			name = Release;
 		};
@@ -2026,6 +2134,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "HutHelper/Supporting Files/HutHelper.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JW2LR94V6G;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2075,6 +2184,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "HutHelper/Supporting Files/HutHelper.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JW2LR94V6G;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2122,13 +2232,16 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = ExamTime/ExamTime.entitlements;
-				DEVELOPMENT_TEAM = JW2LR94V6G;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "HutHelper/Supporting Files/HutHelper-Prefix.pch";
 				INFOPLIST_FILE = ExamTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = name.wxz.HutHelper.ExamTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -2138,13 +2251,16 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = ExamTime/ExamTime.entitlements;
-				DEVELOPMENT_TEAM = JW2LR94V6G;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "HutHelper/Supporting Files/HutHelper-Prefix.pch";
 				INFOPLIST_FILE = ExamTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = name.wxz.HutHelper.ExamTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -2157,6 +2273,15 @@
 			buildConfigurations = (
 				3A2FF4F71E50179700B07EB6 /* Debug */,
 				3A2FF4F81E50179700B07EB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A6397F11EC9C12300EE4BEA /* Build configuration list for PBXNativeTarget "HutHelperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A6397EF1EC9C12300EE4BEA /* Debug */,
+				3A6397F01EC9C12300EE4BEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -20,7 +20,7 @@
 +(NSString*)getApiProfileUser;
 +(NSString*)getApiProfileAvatar;
 +(NSString*)getApiHomeWork;
-+(NSString*)getApiPower;
++(NSString*)getApiPower:(NSString*)build room:(NSString*)room;
 
 +(NSString*)getApiGoods;
 +(NSString*)getApiGoodsUser;
@@ -28,23 +28,24 @@
 +(NSString*)getApiGoodsImgUpload;
 +(NSString*)getApiGoodsShow;
 
-+(NSString*)getApiLost;
++(NSString*)getApiLost:(int)num;
 +(NSString*)getApiLostUser;
 +(NSString*)getApiLostCreate;
 +(NSString*)getApiLostImgUpload;
 
-+(NSString*)getApiMoments;
++(NSString*)getApiMoments:(int)num;
 +(NSString*)getApiMomentsUser;
 +(NSString*)getApiMomentsCreate;
 +(NSString*)getApiMomentsImgUpload;
 +(NSString*)getApiMomentsDelete;
 +(NSString*)getApiMomentsCommentDelete;
 +(NSString*)getApiMomentsCreateComment;
-+(NSString*)getApiMomentsLikesCreate;
++(NSString*)getApiMomentsLikesCreate:(NSString*)momentsID;
 +(NSString*)getApiMomentsLikesShow;
 
 
 +(NSString*)getApiFeedback;
++(NSString*)getApiLibrary;
 +(NSString*)getApiImg;
 
 +(NSString*)apiIndex;
