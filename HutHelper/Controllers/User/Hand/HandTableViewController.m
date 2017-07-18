@@ -28,6 +28,7 @@
 @synthesize items = _items;
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     /**加载数据*/
     if ([Config getIs]==0) {
@@ -56,8 +57,9 @@
     /** 标题栏样式 */
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0/255.0 green:224/255.0 blue:208/255.0 alpha:1]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:94/255.0 green:199/255.0 blue:217/255.0 alpha:1]];
     _num=1;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,7 +69,6 @@
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{  //多少块
-    
     return _Hand_content.count/2;
 }
 
@@ -76,7 +77,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{///每块的高度
-    return 240;
+    return SYReal(250);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -99,7 +100,7 @@
     }else{
         NSLog(@"被重用了%d",indexPath.section);
     }
-    cell.price1.text=[self getprize:(short)(indexPath.section+1)*2-1];
+    cell.price1.text=[NSString stringWithFormat:@"¥%@",[self getprize:(short)(indexPath.section+1)*2-1]];
     cell.name1.text=[self getName:(short)(indexPath.section+1)*2-1];
     cell.time1.text=[self gettime:(short)(indexPath.section+1)*2-1];
     cell.img1.contentMode =UIViewContentModeScaleAspectFill;

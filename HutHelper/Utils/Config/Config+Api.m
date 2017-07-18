@@ -10,27 +10,26 @@
 #import "NSString+Common.h"
 
 @implementation Config (Api)
-#pragma mark - 课表查询
 +(NSString*)getApiClass{
-    return @"http://app.wxz.name/api/Class_ps";
+    return @"http://app.wxz.name/api/Class_ps.html";
 }
 +(NSString*)getApiClassXP{
-    return @"http://app.wxz.name/api/Class_xp";
+    return @"http://app.wxz.name/api/Class_xp.html";
 }
 #pragma mark - 考试查询
 +(NSString*)getApiExam{
-    return @"http://app.wxz.name/api/Exam";
+    return @"http://app.wxz.name/api/Exam.html";
 }
 #pragma mark - 成绩查询
 +(NSString*)getApiScores{
-    return @"http://app.wxz.name/api/Score";
+    return @"http://app.wxz.name/api/Score.html";
 }
 +(NSString*)getApiRank{
-    return @"http://app.wxz.name/api/Rank";
+    return @"http://app.wxz.name/api/Rank.html";
 }
 #pragma mark - 登录界面
 +(NSString*)getApiLogin:(NSString*)userName passWord:(NSString*)passWord{
-    return @"http://app.wxz.name/api/Login";
+    return @"http://app.wxz.name/api/Login.html";
 }
 +(NSString*)getApiLoginReset{
     return @"http://app.wxz.name/api/null";
@@ -121,5 +120,9 @@
 }
 +(NSString*)apiIndex{
     return @"http://hut.wxz.name:8888";
+}
+
++(NSString*)getApiCalendar{
+    return @"http://www.hugongda.com:8888/api/v1/get/calendar";
 }
 @end
