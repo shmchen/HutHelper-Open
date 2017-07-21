@@ -112,14 +112,14 @@
 }
 #pragma mark - 其他
 +(NSString*)getApiImg{
-    return @"http://hut.wxz.name:8888";
+    return @"http://www.hugongda.com:8888";
 }
 #pragma mark - 视频专栏
 +(NSString*)getApiVedioShow{
     return @"http://vedio.wxz.name/api/vedio.html";
 }
 +(NSString*)apiIndex{
-    return @"http://hut.wxz.name:8888";
+    return @"http://www.hugongda.com:8888";
 }
 
 +(NSString*)getApiCalendar{

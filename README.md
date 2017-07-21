@@ -14,6 +14,11 @@
 - Web端:[工大导航](http://hugongda.top:8888/)
 - 开发者博客:[Nine's Blog](http://www.wxz.name)
 
+# Get Started
+```
+git clone https://github.com/isnine/HutHelper-Open.git
+```
+接口与线上版本不同，登录界面输入任意账号和密码，即可登录
 # Frame
 ```
 .
