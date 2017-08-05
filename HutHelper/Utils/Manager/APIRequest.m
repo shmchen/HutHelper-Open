@@ -15,7 +15,7 @@
 + (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     [Config setNoSharedCache];
-    [self GET:URLString parameters:parameters timeout:GET_TIMEOUT success:^(id responseObject) {
+    [self GET:URLString parameters:parameters timeout:3.f success:^(id responseObject) {
         if (success) {
             success(responseObject);
         }
@@ -26,7 +26,10 @@
     }];
 }
 
-+ (void)GET:(NSString *)URLString parameters:(id)parameters timeout:(double)time success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (void)GET:(NSString *)URLString parameters:(id)parameters
+    timeout:(double)time
+    success:(void (^)(id))success
+    failure:(void (^)(NSError *))failure
 {
     NSLog(@"请求地址:%@",URLString);
         [Config setNoSharedCache];
@@ -47,14 +50,19 @@
          }];
 }
 
-+ (void)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (void)POST:(NSString *)URLString parameters:(id)parameters
+     success:(void (^)(id))success
+     failure:(void (^)(NSError *))failure
 {
+    NSLog(@"请求地址:%@",URLString);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     ((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = POST_TIMEOUT;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
      manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
     [manager POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

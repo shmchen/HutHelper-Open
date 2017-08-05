@@ -50,8 +50,8 @@
     return @"http://app.wxz.name/api/null";
 }
 #pragma mark - 二手市场
-+(NSString*)getApiGoods{
-    return [NSString stringWithFormat:@"%@/api/v1/stuff/goods",Config.apiIndex];
++(NSString*)getApiGoods:(int)num{
+    return [NSString stringWithFormat:@"%@/api/v1/stuff/goods/%d",Config.apiIndex,num];
 }
 +(NSString*)getApiGoodsUser{
     return @"http://app.wxz.name/api/null";
@@ -119,10 +119,13 @@
     return @"http://vedio.wxz.name/api/vedio.html";
 }
 +(NSString*)apiIndex{
-    return @"http://www.hugongda.com:8888";
+    return @"https://hut.wxz.name";
 }
-
 +(NSString*)getApiCalendar{
     return @"http://www.hugongda.com:8888/api/v1/get/calendar";
+}
+
++(NSString*)apiIndexHttps{
+    return @"https://hut.wxz.name";
 }
 @end

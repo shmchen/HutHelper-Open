@@ -36,6 +36,7 @@
 +(void)saveVedio720p:(NSString*)vedioString;
 +(void)saveVedio1080p:(NSString*)vedioString;
 +(void)saveCalendar:(NSArray*)calendarArray;
++(void)saveImToken:(NSString*)token;
 #pragma mark - 获得存储数据
 +(NSArray*)getCourse;
 +(NSArray*)getCourseXp;
@@ -47,6 +48,7 @@
 +(NSDictionary*)getSayLike;
 +(NSArray*)getHand;
 +(NSArray*)getOtherHand;
++(NSArray*)getLost;
 +(NSData*)getExam;
 +(NSDictionary*)getScoreRank;
 +(NSArray*)getCalendar;
@@ -63,6 +65,7 @@
 +(NSString*)getSex;
 +(NSString*)getUserId;
 +(NSString*)getRememberCodeApp;
++(NSString*)getImToken;
 
 +(void)saveUmeng;
 +(void)removeUmeng;

@@ -9,7 +9,7 @@
 #import "VedioTableViewController.h"
 #import "VedioTableViewCell.h"
 #import "MBProgressHUD+MJ.h"
-#import "VedioModel.h"
+#import "Vedio.h"
 #import "MJRefresh.h"
 #import "APIRequest.h"
 #import "Config+Api.h"
@@ -39,9 +39,22 @@
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
-    //下拉刷新
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reload)];
-    [self.tableView.mj_header beginRefreshing];
+    
+     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector((reload))];
+    self.tableView.mj_header = header;
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    header.automaticallyChangeAlpha = YES;
+    // 隐藏时间
+    header.lastUpdatedTimeLabel.hidden = YES;
+    // 马上进入刷新状态
+    [header beginRefreshing];
+    
+    //MJRefresh适配iOS11
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    }
+
 }
 
 
@@ -109,7 +122,7 @@
 -(void)loadData:(NSDictionary*)JSONDic{
     datas=[[NSMutableArray alloc]init];
     for (NSDictionary *eachDic in JSONDic) {
-        VedioModel *momentsModel=[[VedioModel alloc]initWithDic:eachDic];
+        Vedio *momentsModel=[[Vedio alloc]initWithDic:eachDic];
         [datas addObject:momentsModel];
     }
 }
@@ -126,7 +139,7 @@
         [self.tableView.mj_header endRefreshing];
     }failure:^(NSError *error) {
         [self.tableView.mj_header endRefreshing];
-        [MBProgressHUD showError:@"网络错误"];
+        [MBProgressHUD showError:@"网络错误"toView:self.view];
     }];
 }
 #pragma mark - 空白状态代理

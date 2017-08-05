@@ -58,7 +58,11 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
     // A little trick for removing the cell separators
     self.tableView.tableFooterView = [UIView new];
     [self.tableView.mj_header beginRefreshing];
-    
+    //MJRefresh适配iOS11
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    }
     /**让黑线消失的方法*/
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"white"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
@@ -229,15 +233,15 @@ int datediff(int y1,int m1,int d1,int y2,int m2,int d2)
                 [self.tableView.mj_header endRefreshing];
             }
             else{
-                [MBProgressHUD showError:@"计划表上暂无考试"];
+                [MBProgressHUD showError:@"计划表上暂无考试" toView:self.view];
             }
         }
         else{
             
-            [MBProgressHUD showError:@"超时,显示本地数据"];
+            [MBProgressHUD showError:@"超时,显示本地数据" toView:self.view];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"网络错误"];
+        [MBProgressHUD showError:@"网络错误" toView:self.view];
         [self.tableView.mj_header endRefreshing];
     }];
 }

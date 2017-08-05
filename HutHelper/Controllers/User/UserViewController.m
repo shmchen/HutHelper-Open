@@ -30,15 +30,14 @@ UIImage* img ;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    //    NSString *path_document = NSHomeDirectory();
-    //    NSString *imagePath = [path_document stringByAppendingString:@"/img/pic.jpg"];//把图片直接保存到指定的路径
-    //    UIImage *getimage2 = [UIImage imageWithContentsOfFile:imagePath];
-    //
+
+    
     NSDictionary *User_Data=[defaults objectForKey:@"User"];
 
     self.headerView=[[JSHeaderView alloc] initWithImage:[self getImg]];
     self.navigationItem.titleView = self.headerView;
-    
+    //MJRefresh适配iOS11
+
     [self.headerView reloadSizeWithScrollView:self.tableView];
     [self.headerView handleClickActionWithBlock:^{
         [self getImageFromIpc];
@@ -49,6 +48,7 @@ UIImage* img ;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
 }
 - (void)getImageFromIpc
 {
@@ -135,7 +135,7 @@ NSData* data;
 -(void)postsucces{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     HideAllHUD
-    [MBProgressHUD showSuccess:@"上传成功"];
+    [MBProgressHUD showSuccess:@"上传成功" toView:self.view];
     [defaults setObject:data forKey:@"head_img"];
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:([self.navigationController.viewControllers count] -2)] animated:YES];  //返回Home
     
@@ -143,7 +143,7 @@ NSData* data;
 
 -(void)postfailure{
     HideAllHUD
-    [MBProgressHUD showError:@"上传失败"];
+    [MBProgressHUD showError:@"上传失败" toView:self.view];
 }
 
 #pragma mark -

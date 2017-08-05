@@ -45,8 +45,20 @@
     self.emptyDataSetDelegate = self;
     self.tableFooterView = [UIView new];
     
-    self.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(reload)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector((reload))];
+    self.mj_header = header;
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    header.automaticallyChangeAlpha = YES;
+    // 隐藏时间
+    header.lastUpdatedTimeLabel.hidden = YES;
+    // 马上进入刷新状态
     self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(load)];
+    //MJRefresh适配iOS11
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    }
+    
     return self;
 }
 -(void)HiddenMJ{
@@ -136,11 +148,12 @@
                               [self.mj_header endRefreshing];
                               [self reloadData];
                           }failure:^(NSError *error) {
+                              [MBProgressHUD showError:@"网络错误" toView:self];
                           }];
                  }
                  else{
                      [self.mj_header endRefreshing];
-                     [MBProgressHUD showError:@"网络错误"];
+                     [MBProgressHUD showError:@"网络错误" toView:self];
                  }
              }
              else{
@@ -149,7 +162,7 @@
              }
          }failure:^(NSError *error) {
              [self.mj_header endRefreshing];
-             [MBProgressHUD showError:@"网络错误"];
+             [MBProgressHUD showError:@"网络错误" toView:self];
          }];
 }
 -(void)load{
@@ -166,25 +179,25 @@
                      [self.mj_footer endRefreshing];
                      [self reloadData];
                      if (num==[sayMax intValue]) {
-                         [MBProgressHUD showSuccess:@"当前为最大页数"];
+                         [MBProgressHUD showSuccess:@"当前为最大页数" toView:self];
                          self.mj_footer.hidden = YES;
                      }
                      
                  }else{
                      [self.mj_footer endRefreshing];
-                     [MBProgressHUD showError:@"没有找到说说数据"];
+                     [MBProgressHUD showError:@"没有找到说说数据" toView:self];
                      num--;
                  }
              }
              else{
                  [self.mj_footer endRefreshing];
-                 [MBProgressHUD showError:[Say_All objectForKey:@"msg"]];
+                 [MBProgressHUD showError:[Say_All objectForKey:@"msg"] toView:self];
                  num--;
              }
              
          }failure:^(NSError *error) {
              [self.mj_footer endRefreshing];
-             [MBProgressHUD showError:@"网络错误"];
+             [MBProgressHUD showError:@"网络错误" toView:self];
              num--;
          }];
 }

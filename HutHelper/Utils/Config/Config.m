@@ -72,6 +72,10 @@ static int Is ;
     return user.user_id;
 }
 
++(NSString*)getImToken{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"kImToken"];
+}
 +(NSString*)getRememberCodeApp{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     return [defaults objectForKey:@"remember_code_app"];
@@ -144,7 +148,7 @@ static int Is ;
 }
 +(void)saveLost:(NSArray*)lostData{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setObject:lostData forKey:@"Lost"];
+    [defaults setObject:lostData forKey:@"kLost"];
     [defaults synchronize];
 }
 +(void)saveNowWeek:(int)nowWeek{
@@ -177,6 +181,11 @@ static int Is ;
     [defaults setObject:calendarArray forKey:@"kCalendar"];
     [defaults synchronize];
 }
++(void)saveImToken:(NSString*)token{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:@"kImToken"];
+    [defaults synchronize];
+}
 #pragma mark - 获得存储数据
 +(NSArray*)getCourse{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
@@ -190,6 +199,10 @@ static int Is ;
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     return [defaults objectForKey:@"Say"];
  }
++(NSArray*)getLost{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"kLost"];
+}
 +(NSDictionary*)getSayLike{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     return [defaults objectForKey:@"SayLikes"];
@@ -228,7 +241,7 @@ static int Is ;
 }
 +(NSArray*)getCalendar{
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    return [defaults objectForKey:@"Calendar"];
+    return [defaults objectForKey:@"kCalendar"];
 }
 #pragma mark - 版本信息
 +(void)saveCurrentVersion:(NSString*)currentVersion{

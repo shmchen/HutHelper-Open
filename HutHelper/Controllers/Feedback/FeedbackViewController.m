@@ -63,7 +63,7 @@
 - (IBAction)Submit:(id)sender {
     
     if ([_Mail.text isEqualToString:@""]||[_Content.text isEqualToString:@""]||[_Content.text isEqualToString:@"请输入反馈意见"]) {
-        [MBProgressHUD showError:@"联系方式与反馈内容不能为空"];
+        [MBProgressHUD showError:@"联系方式与反馈内容不能为空" toView:self.view];
     }
     else{
         NSDictionary *dic=@{@"email":_Mail.text,
@@ -72,11 +72,12 @@
         
         [MBProgressHUD showMessage:@"发送中" toView:self.view];
         [APIRequest POST:Config.getApiFeedback parameters:dic success:^(id responseObject) {
+    
             [Config saveUmeng];
             [Config pushViewController:@"Feedback2"];
             HideAllHUD
         } failure:^(NSError *error) {
-            [MBProgressHUD showError:@"发送超时，请重试"];
+            [MBProgressHUD showError:@"发送超时，请重试" toView:self.view];
             HideAllHUD
         }];
 //        NSURL * url                        = [NSURL URLWithString:Config.getApiFeedback];
@@ -128,7 +129,7 @@
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 
 {
-    const int movementDistance = SYReal(160); // tweak as needed
+    const int movementDistance = SYReal(120); // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     int movement = (up ? -movementDistance : movementDistance);
     [UIView beginAnimations: @"anim" context: nil];
