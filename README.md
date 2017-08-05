@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/pod-1.1.1-red.svg)
 ![](https://img.shields.io/badge/license-apache-green.svg)
 
-![海报](https://img.wxz.name/海报.jpg?imageView2/2/w/378/h/675/interlace/0/q/41)
+![海报](https://img.wxz.name/海报.jpg?imageView2/2/w/302/h/540/interlace/0/q/41)
 # Description
 - 工大助手是湖南工业大学计算机学院实验室为工大学子开发的一款校园App。
 - 目前iOS端用户量4000人左右，Android端用户9000人左右。Web端日浏览量在3W左右。
